@@ -57,21 +57,4 @@ public class Cliente {
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraultimaAlteracao;
-	
-	public Cliente() {
-		this.idCliente = idCliente;
-		this.nomeCliente = nomeCliente;
-		this.sexo = sexo;
-		this.tefone = tefone;
-		this.rua = rua;
-		this.bairro = bairro;
-		this.numero = numero;
-		this.cidade = cidade;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.dataHoraDoCadastro = dataHoraDoCadastro;
-		this.dataHoraultimaAlteracao = dataHoraultimaAlteracao;
-	}
-	
-	
 }
