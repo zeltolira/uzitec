@@ -1,6 +1,7 @@
 package com.uzitec.clienteservico.application.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +32,13 @@ public class ClienteInfraRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
 		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClientePorId(UUID idCliente) {
+		log.info("[inicia] ClienteInfraRepository - buscaClientePorId");
+		log.info("[finaliza] ClienteInfraRepository - buscaClientePorId");
+		return null;
 	}
 
 }
