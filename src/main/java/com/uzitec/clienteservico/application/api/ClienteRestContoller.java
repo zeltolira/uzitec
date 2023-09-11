@@ -6,7 +6,6 @@ import com.uzitec.clienteservico.application.api.request.ClienteRequest;
 import com.uzitec.clienteservico.application.api.response.ClienteResponse;
 import com.uzitec.clienteservico.application.service.ClienteService;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -18,7 +17,7 @@ public class ClienteRestContoller implements ClienteAPI {
 	private final ClienteService clienteService;
 
 	@Override
-	public ClienteResponse postCliente(@Valid ClienteRequest clienteRequest) {
+	public ClienteResponse postCliente(ClienteRequest clienteRequest) {
 		log.info("[inicia] ClienteRestContoller - postCliente");
 		ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
 		log.info("[finaliza] ClienteRestContoller - postCliente");

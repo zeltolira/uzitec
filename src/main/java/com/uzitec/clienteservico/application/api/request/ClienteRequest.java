@@ -9,10 +9,10 @@ public class ClienteRequest {
 
 	private String nomeCliente;
 	private Sexo sexo;
-	private String tefone;
+	private String telefone;
 	private String rua;
 	private String bairro;
-	private String numero;
+	private String numeroDaCasa;
 	private String cidade;
 	private String cpf;
 	private String rg;
