@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.uzitec.clienteservico.application.api.request.ClienteRequest;
 import com.uzitec.clienteservico.application.api.response.ClienteResponse;
-import com.uzitec.clienteservico.application.api.response.ClinteListResponse;
+import com.uzitec.clienteservico.application.api.response.ClienteListResponse;
 
 import jakarta.validation.Valid;
 
@@ -26,5 +26,5 @@ public interface ClienteAPI {
 	
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<ClinteListResponse> getTodosClientes();
+	List<ClienteListResponse> getTodosClientes();
 }

@@ -5,7 +5,7 @@ import com.uzitec.clienteservico.domain.Sexo;
 import lombok.Value;
 
 @Value
-public class ClinteListResponse {
+public class ClienteListResponse {
 	private String nomeCliente;
 	private Sexo sexo;
 	private String telefone;
