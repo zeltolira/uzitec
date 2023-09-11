@@ -1,10 +1,12 @@
 package com.uzitec.clienteservico.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import com.uzitec.clienteservico.application.api.request.ClienteRequest;
+import com.uzitec.clienteservico.application.api.response.ClienteDetalhadoResponse;
 import com.uzitec.clienteservico.application.api.response.ClienteListResponse;
 import com.uzitec.clienteservico.application.api.response.ClienteResponse;
 import com.uzitec.clienteservico.application.repository.ClienteRepository;
@@ -36,6 +38,14 @@ public class ClienteApplicationService implements ClienteService {
 		List<Cliente> clientes = clienteRepository.buscaTodosClientes();
 		log.info("[finaliza] ClienteApplicationService - buscaTodosClientes");
 		return ClienteListResponse.converte(clientes);
+	}
+
+	@Override
+	public ClienteDetalhadoResponse buscaClientesPorId(UUID idCliente) {
+		log.info("[inicia] ClienteApplicationService - buscaClientesPorId");
+		Cliente cliente = clienteRepository.buscaClientePorId(idCliente);
+		log.info("[finaliza] ClienteApplicationService - buscaClientesPorId");
+		return new ClienteDetalhadoResponse(cliente);
 	}
 
 }

@@ -8,10 +8,8 @@ import com.uzitec.clienteservico.application.api.response.ClienteDetalhadoRespon
 import com.uzitec.clienteservico.application.api.response.ClienteListResponse;
 import com.uzitec.clienteservico.application.api.response.ClienteResponse;
 
-import jakarta.validation.Valid;
-
 public interface ClienteService {
 	ClienteResponse criaCliente(ClienteRequest clienteRequest);
 	List<ClienteListResponse> buscaTodosClientes();
-	ClienteDetalhadoResponse buscaClientesPorId(@Valid UUID idCliente);
+	ClienteDetalhadoResponse buscaClientesPorId(UUID idCliente);
 }
