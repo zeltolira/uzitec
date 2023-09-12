@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.uzitec.clienteservico.application.api.request.ClienteAlteracaoRequest;
 import com.uzitec.clienteservico.application.api.request.ClienteRequest;
 import com.uzitec.clienteservico.application.api.response.ClienteDetalhadoResponse;
 import com.uzitec.clienteservico.application.api.response.ClienteListResponse;
@@ -35,4 +37,8 @@ public interface ClienteAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	ClienteDetalhadoResponse getClientePorId(@PathVariable UUID idCliente);
 	
+	@PatchMapping(value = "/{idCliente}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void alteraClientePorId(@PathVariable UUID idCliente, @Valid @RequestBody ClienteAlteracaoRequest clienteAlteracaoRequest);
+		
 }
