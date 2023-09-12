@@ -56,4 +56,13 @@ public class ClienteRestContoller implements ClienteAPI {
 		
 	}
 
+	@Override
+	public void deletaClientePorId(UUID idCliente) {
+		log.info("[inicia] ClienteRestContoller - deletaClientePorId");
+		log.info("[idCliente] {}", idCliente);
+		clienteService.deletaClientePorId(idCliente);
+		log.info("[finaliza] ClienteRestContoller - deletaClientePorId");
+		
+	}
+
 }
