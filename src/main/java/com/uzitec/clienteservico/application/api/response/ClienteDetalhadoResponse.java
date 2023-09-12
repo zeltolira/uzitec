@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.application.api.response;
 
+import java.util.UUID;
+
 import com.uzitec.clienteservico.domain.Cliente;
 import com.uzitec.clienteservico.domain.Sexo;
 
@@ -7,6 +9,7 @@ import lombok.Value;
 
 @Value
 public class ClienteDetalhadoResponse {
+	private UUID idCliente;
 	private String nomeCliente;
 	private Sexo sexo;
 	private String telefone;
@@ -18,6 +21,7 @@ public class ClienteDetalhadoResponse {
 	private String rg;
 
 	public ClienteDetalhadoResponse(Cliente cliente) {
+		this.idCliente = cliente.getIdCliente();
 		this.nomeCliente = cliente.getNomeCliente();
 		this.sexo = cliente.getSexo();
 		this.telefone = cliente.getTelefone();

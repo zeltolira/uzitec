@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.uzitec.clienteservico.application.repository.ClienteRepository;
 import com.uzitec.clienteservico.domain.Cliente;
+import com.uzitec.clienteservico.handler.APIException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -39,7 +40,7 @@ public class ClienteInfraRepository implements ClienteRepository {
 	public Cliente buscaClientePorId(UUID idCliente) {
 		log.info("[inicia] ClienteInfraRepository - buscaClientePorId");
 		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
-				.orElseThrow(()->APIException.Build(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
+				.orElseThrow(()->APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
 		log.info("[finaliza] ClienteInfraRepository - buscaClientePorId");
 		return cliente;
 	}
