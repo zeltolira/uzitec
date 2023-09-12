@@ -3,6 +3,7 @@ package com.uzitec.clienteservico.application.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import com.uzitec.clienteservico.application.repository.ClienteRepository;
@@ -37,8 +38,10 @@ public class ClienteInfraRepository implements ClienteRepository {
 	@Override
 	public Cliente buscaClientePorId(UUID idCliente) {
 		log.info("[inicia] ClienteInfraRepository - buscaClientePorId");
+		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
+				.orElseThrow(()->APIException.Build(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
 		log.info("[finaliza] ClienteInfraRepository - buscaClientePorId");
-		return null;
+		return cliente;
 	}
 
 }
