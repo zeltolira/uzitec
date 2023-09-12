@@ -1,4 +1,4 @@
-package com.uzitec.clienteservico.application.infra;
+package com.uzitec.clienteservico.cliente.infra;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,8 +6,8 @@ import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-import com.uzitec.clienteservico.application.repository.ClienteRepository;
-import com.uzitec.clienteservico.domain.Cliente;
+import com.uzitec.clienteservico.cliente.application.repository.ClienteRepository;
+import com.uzitec.clienteservico.cliente.domain.Cliente;
 import com.uzitec.clienteservico.handler.APIException;
 
 import lombok.RequiredArgsConstructor;

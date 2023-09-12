@@ -1,4 +1,4 @@
-package com.uzitec.clienteservico.application.api.response;
+package com.uzitec.clienteservico.cliente.application.api.response;
 
 import java.util.UUID;
 

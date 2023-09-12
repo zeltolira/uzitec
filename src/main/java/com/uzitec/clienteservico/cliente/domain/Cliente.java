@@ -1,12 +1,12 @@
-package com.uzitec.clienteservico.domain;
+package com.uzitec.clienteservico.cliente.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import com.uzitec.clienteservico.application.api.request.ClienteAlteracaoRequest;
-import com.uzitec.clienteservico.application.api.request.ClienteRequest;
+import com.uzitec.clienteservico.cliente.application.api.request.ClienteAlteracaoRequest;
+import com.uzitec.clienteservico.cliente.application.api.request.ClienteRequest;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

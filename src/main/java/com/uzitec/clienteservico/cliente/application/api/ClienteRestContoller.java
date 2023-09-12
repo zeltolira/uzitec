@@ -1,18 +1,17 @@
-package com.uzitec.clienteservico.application.api;
+package com.uzitec.clienteservico.cliente.application.api;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uzitec.clienteservico.application.api.request.ClienteAlteracaoRequest;
-import com.uzitec.clienteservico.application.api.request.ClienteRequest;
-import com.uzitec.clienteservico.application.api.response.ClienteDetalhadoResponse;
-import com.uzitec.clienteservico.application.api.response.ClienteListResponse;
-import com.uzitec.clienteservico.application.api.response.ClienteResponse;
-import com.uzitec.clienteservico.application.service.ClienteService;
+import com.uzitec.clienteservico.cliente.application.api.request.ClienteAlteracaoRequest;
+import com.uzitec.clienteservico.cliente.application.api.request.ClienteRequest;
+import com.uzitec.clienteservico.cliente.application.api.response.ClienteDetalhadoResponse;
+import com.uzitec.clienteservico.cliente.application.api.response.ClienteListResponse;
+import com.uzitec.clienteservico.cliente.application.api.response.ClienteResponse;
+import com.uzitec.clienteservico.cliente.application.service.ClienteService;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

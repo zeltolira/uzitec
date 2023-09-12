@@ -1,17 +1,17 @@
-package com.uzitec.clienteservico.application.service;
+package com.uzitec.clienteservico.cliente.application.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.uzitec.clienteservico.application.api.request.ClienteAlteracaoRequest;
-import com.uzitec.clienteservico.application.api.request.ClienteRequest;
-import com.uzitec.clienteservico.application.api.response.ClienteDetalhadoResponse;
-import com.uzitec.clienteservico.application.api.response.ClienteListResponse;
-import com.uzitec.clienteservico.application.api.response.ClienteResponse;
-import com.uzitec.clienteservico.application.repository.ClienteRepository;
-import com.uzitec.clienteservico.domain.Cliente;
+import com.uzitec.clienteservico.cliente.application.api.request.ClienteAlteracaoRequest;
+import com.uzitec.clienteservico.cliente.application.api.request.ClienteRequest;
+import com.uzitec.clienteservico.cliente.application.api.response.ClienteDetalhadoResponse;
+import com.uzitec.clienteservico.cliente.application.api.response.ClienteListResponse;
+import com.uzitec.clienteservico.cliente.application.api.response.ClienteResponse;
+import com.uzitec.clienteservico.cliente.application.repository.ClienteRepository;
+import com.uzitec.clienteservico.cliente.domain.Cliente;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

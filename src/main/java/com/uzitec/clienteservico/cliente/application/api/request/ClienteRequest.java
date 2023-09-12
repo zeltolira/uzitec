@@ -1,11 +1,12 @@
-package com.uzitec.clienteservico.application.api.request;
+package com.uzitec.clienteservico.cliente.application.api.request;
 
-import com.uzitec.clienteservico.domain.Sexo;
+import com.uzitec.clienteservico.cliente.domain.Sexo;
 
 import lombok.Value;
 
 @Value
-public class ClienteAlteracaoRequest {
+public class ClienteRequest {
+
 	private String nomeCliente;
 	private Sexo sexo;
 	private String telefone;
@@ -13,4 +14,6 @@ public class ClienteAlteracaoRequest {
 	private String bairro;
 	private String numeroDaCasa;
 	private String cidade;
+	private String cpf;
+	private String rg;
 }
