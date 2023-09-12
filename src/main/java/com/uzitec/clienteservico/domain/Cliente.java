@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.uzitec.clienteservico.application.api.request.ClienteAlteracaoRequest;
 import com.uzitec.clienteservico.application.api.request.ClienteRequest;
 
 import jakarta.persistence.Column;
@@ -71,5 +72,16 @@ public class Cliente {
 		this.cpf = clienteRequest.getCpf();
 		this.rg = clienteRequest.getRg();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteRequest) {
+		this.nomeCliente = clienteRequest.getNomeCliente();
+		this.sexo = clienteRequest.getSexo();
+		this.telefone = clienteRequest.getTelefone();
+		this.rua = clienteRequest.getRua();
+		this.bairro = clienteRequest.getBairro();
+		this.numeroDaCasa = clienteRequest.getNumeroDaCasa();
+		this.cidade = clienteRequest.getCidade();
+		this.dataHoraultimaAlteracao = LocalDateTime.now();
 	}
 }

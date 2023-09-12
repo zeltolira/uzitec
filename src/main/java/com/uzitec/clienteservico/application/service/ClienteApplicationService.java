@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.uzitec.clienteservico.application.api.request.ClienteAlteracaoRequest;
 import com.uzitec.clienteservico.application.api.request.ClienteRequest;
 import com.uzitec.clienteservico.application.api.response.ClienteDetalhadoResponse;
 import com.uzitec.clienteservico.application.api.response.ClienteListResponse;
@@ -46,6 +47,15 @@ public class ClienteApplicationService implements ClienteService {
 		Cliente cliente = clienteRepository.buscaClientePorId(idCliente);
 		log.info("[finaliza] ClienteApplicationService - buscaClientesPorId");
 		return new ClienteDetalhadoResponse(cliente);
+	}
+
+	@Override
+	public void alteraClientePorId(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
+		log.info("[inicia] ClienteApplicationService - alteraClientePorId");
+		Cliente cliente = clienteRepository.buscaClientePorId(idCliente);
+		cliente.altera(clienteAlteracaoRequest);
+		clienteRepository.salva(cliente);
+		log.info("[finaliza] ClienteApplicationService - alteraClientePorId");
 	}
 
 }
