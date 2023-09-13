@@ -49,6 +49,6 @@ public interface ClienteAPI {
 	
 	@GetMapping(value = "/cpf")
 	@ResponseStatus(code = HttpStatus.OK)
-	ClienteDetalhadoResponse getClientePorcpf(@RequestParam String cpf);
+	ClienteDetalhadoResponse getClientePorCpf(@RequestParam String cpf);
 	
 }
