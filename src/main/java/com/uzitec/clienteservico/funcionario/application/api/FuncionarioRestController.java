@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.response.FuncionarioResponse;
+import com.uzitec.clienteservico.funcionario.application.service.FuncionarioService;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -14,11 +14,14 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class FuncionarioRestController implements FuncionarioAPI {
 
+	private final FuncionarioService funcionarioService;
+
 	@Override
-	public FuncionarioResponse salvaFuncionario(@Valid FuncionarioRequest funcionarioRequest) {
+	public FuncionarioResponse salvaFuncionario(FuncionarioRequest funcionarioRequest) {
 		log.info("[inicia] FuncionarioRestController - salvaFuncionario");
+		FuncionarioResponse funcionarioresponse = funcionarioService.salvaFuncionario(funcionarioRequest);
 		log.info("[finaliza] FuncionarioRestController - salvaFuncionario");
-		return null;
+		return funcionarioresponse;
 	}
 
 }

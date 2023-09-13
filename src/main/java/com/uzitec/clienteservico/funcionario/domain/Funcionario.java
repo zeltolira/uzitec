@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -37,4 +39,10 @@ public class Funcionario {
 	@Enumerated(EnumType.STRING)
 	private Cargo cargo;
 	
+	public Funcionario(FuncionarioRequest funcionarioRequest) {
+		this.nomeFuncionario = funcionarioRequest.getNomeFuncionario();
+		this.cpf = funcionarioRequest.getCpf();
+		this.celular = funcionarioRequest.getCelular();
+		this.cargo = funcionarioRequest.getCargo();
+	}
 }
