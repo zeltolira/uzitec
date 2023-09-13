@@ -15,5 +15,4 @@ public interface ClienteService {
 	ClienteDetalhadoResponse buscaClientesPorId(UUID idCliente);
 	void alteraClientePorId(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
 	void deletaClientePorId(UUID idCliente);
-	ClienteDetalhadoResponse buscaClientePorCpf(String cpf);
 }

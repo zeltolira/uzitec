@@ -63,13 +63,4 @@ public class ClienteRestContoller implements ClienteAPI {
 		log.info("[finaliza] ClienteRestContoller - deletaClientePorId");
 		
 	}
-
-	@Override
-	public ClienteDetalhadoResponse getClientePorCpf(String cpf) {
-		log.info("[inicia] ClienteRestContoller - getClientePorcpf");
-		ClienteDetalhadoResponse clienteDetalhado = clienteService.buscaClientePorCpf(cpf);
-		log.info("[finaliza] ClienteRestContoller - getClientePorcpf");
-		return clienteDetalhado;
-	}
-
 }

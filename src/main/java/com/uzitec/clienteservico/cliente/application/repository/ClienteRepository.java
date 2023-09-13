@@ -3,7 +3,6 @@ package com.uzitec.clienteservico.cliente.application.repository;
 import java.util.List;
 import java.util.UUID;
 
-import com.uzitec.clienteservico.cliente.application.api.response.ClienteDetalhadoResponse;
 import com.uzitec.clienteservico.cliente.domain.Cliente;
 
 public interface ClienteRepository {
@@ -11,5 +10,4 @@ public interface ClienteRepository {
 	List<Cliente> buscaTodosClientes();
 	Cliente buscaClientePorId(UUID idCliente);
 	void deletaCliente(Cliente cliente);
-	ClienteDetalhadoResponse buscaClientePorCpf(String cpf);
 }

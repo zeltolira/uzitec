@@ -52,5 +52,4 @@ public class ClienteInfraRepository implements ClienteRepository {
 		log.info("[finaliza] ClienteInfraRepository - deletaCliente");
 		
 	}
-
 }
