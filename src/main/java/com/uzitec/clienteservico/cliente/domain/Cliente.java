@@ -35,7 +35,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID idCliente;
-	@NotBlank
+	@NotBlank(message = "Campo obrigatório!")
 	private String nomeCliente;
 	@NotNull
 	@Enumerated(EnumType.STRING)
@@ -50,7 +50,7 @@ public class Cliente {
 	private String numeroDaCasa;
 	@NotBlank
 	private String cidade;
-	@NotBlank
+	@NotBlank(message = "Campo obrigatório!")
 	@CPF
 	@Column(unique = true)
 	private String cpf;
