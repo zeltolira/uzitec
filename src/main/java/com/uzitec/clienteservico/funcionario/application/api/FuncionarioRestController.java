@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.uzitec.clienteservico.funcionario.application.api.request.AlteraFuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.response.FuncionarioResponse;
 import com.uzitec.clienteservico.funcionario.application.service.FuncionarioService;
@@ -49,5 +50,15 @@ public class FuncionarioRestController implements FuncionarioAPI {
 		funcionarioService.deletaFuncionario(idFuncionario);
 		log.info("[finaliza] FuncionarioRestController - deletaFuncionario");
 	}
+
+	@Override
+	public void alteraFuncionario(UUID idFuncionario, AlteraFuncionarioRequest alteraFuncionarioRequest) {
+		log.info("[inicia] FuncionarioRestController - alteraFuncionario");
+		funcionarioService.alteraFuncionario(idFuncionario, alteraFuncionarioRequest);
+		log.info("[finaliza] FuncionarioRestController - alteraFuncionario");
+		
+	}
+
+	
 
 }

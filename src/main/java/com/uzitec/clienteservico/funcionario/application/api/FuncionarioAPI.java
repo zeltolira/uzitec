@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
-import com.uzitec.clienteservico.funcionario.application.api.request.alteraFuncionario;
+import com.uzitec.clienteservico.funcionario.application.api.request.AlteraFuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.response.FuncionarioResponse;
 
 import jakarta.validation.Valid;
@@ -40,6 +40,6 @@ public interface FuncionarioAPI {
 	
 	@PatchMapping(value = "/altera/{idFuncionario}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void alteraFuncionario(@PathVariable UUID idFuncionario, @Valid @RequestBody alteraFuncionario alteraFuncionario);
+	void alteraFuncionario(@PathVariable UUID idFuncionario, @Valid @RequestBody AlteraFuncionarioRequest alteraFuncionarioRequest);
 	
 }

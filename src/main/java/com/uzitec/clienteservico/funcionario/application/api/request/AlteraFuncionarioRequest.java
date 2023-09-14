@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Value;
 
 @Value
-public class alteraFuncionario {
+public class AlteraFuncionarioRequest {
 	@NotBlank(message = "Campo Obrigatório!")
 	private String nomeFuncionario;
 	private String cpf;
