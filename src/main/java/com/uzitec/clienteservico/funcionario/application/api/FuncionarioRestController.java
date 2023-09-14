@@ -43,4 +43,10 @@ public class FuncionarioRestController implements FuncionarioAPI {
 		return funcionarios;
 	}
 
+	@Override
+	public void deletaFuncionario(UUID idFuncionario) {
+		log.info("[inicia] FuncionarioRestController - deletaFuncionario");
+		log.info("[finaliza] FuncionarioRestController - deletaFuncionario");
+	}
+
 }
