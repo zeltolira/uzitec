@@ -32,7 +32,7 @@ public interface FuncionarioAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<FuncionarioResponse> buscaTodosFuncionarios();
 	
-	@DeleteMapping
+	@DeleteMapping(value = "/{idFuncionario}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaFuncionario(@PathVariable UUID idFuncionario);
 	
