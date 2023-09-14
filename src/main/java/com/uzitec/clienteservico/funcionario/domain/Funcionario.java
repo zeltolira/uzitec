@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.uzitec.clienteservico.funcionario.application.api.request.AlteraFuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
 
 import jakarta.persistence.Column;
@@ -44,5 +45,13 @@ public class Funcionario {
 		this.cpf = funcionarioRequest.getCpf();
 		this.celular = funcionarioRequest.getCelular();
 		this.cargo = funcionarioRequest.getCargo();
+	}
+
+	public void altera(AlteraFuncionarioRequest alteraFuncionarioRequest) {
+		this.nomeFuncionario = alteraFuncionarioRequest.getNomeFuncionario();
+		this.cpf = alteraFuncionarioRequest.getCpf();
+		this.celular = alteraFuncionarioRequest.getCelular();
+		this.cargo = alteraFuncionarioRequest.getCargo();
+		
 	}
 }

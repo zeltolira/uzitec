@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.uzitec.clienteservico.funcionario.application.api.request.AlteraFuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.response.FuncionarioResponse;
 import com.uzitec.clienteservico.funcionario.application.repository.FuncionarioRepository;
@@ -49,6 +50,15 @@ public class FuncionarioApplicationService implements FuncionarioService {
 		log.info("[inicia] FuncionarioApplicationService - deletaFuncionario");
 		funcionariRepository.deletaFuncionario(idFuncionario);
 		log.info("[finaliza] FuncionarioApplicationService - deletaFuncionario");
+	}
+
+	@Override
+	public void alteraFuncionario(UUID idFuncionario, AlteraFuncionarioRequest alteraFuncionarioRequest) {
+		log.info("[inicia] FuncionarioApplicationService - alteraFuncionario");
+		Funcionario funcionario = funcionariRepository.buscaFuncionarioPorId(idFuncionario);
+		funcionario.altera(alteraFuncionarioRequest);
+		funcionariRepository.salvaFuncionario(funcionario);
+		log.info("[finaliza] FuncionarioApplicationService - alteraFuncionario");
 	}
 
 }
