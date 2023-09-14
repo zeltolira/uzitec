@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.funcionario.application.service;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
@@ -23,6 +25,13 @@ public class FuncionarioApplicationService implements FuncionarioService {
 		Funcionario funcionario = funcionariRepository.salvaFuncionario(new Funcionario(funcionarioRequest));
 		log.info("[finaliza] FuncionarioApplicationService - salvaFuncionario");
 		return new FuncionarioResponse(funcionario);
+	}
+
+	@Override
+	public FuncionarioResponse buscaFuncionarioPorId(UUID idFuncionario) {
+		log.info("[inicia] FuncionarioApplicationService - buscaFuncionarioPorId");
+		log.info("[finaliza] FuncionarioApplicationService - buscaFuncionarioPorId");
+		return null;
 	}
 
 }

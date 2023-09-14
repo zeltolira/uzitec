@@ -29,8 +29,9 @@ public class FuncionarioRestController implements FuncionarioAPI {
 	@Override
 	public FuncionarioResponse buscaFuncionarioPorId(UUID idFuncionario) {
 		log.info("[inicia] FuncionarioRestController - buscaFuncionarioPorId");
+		FuncionarioResponse funcionarioResponse = funcionarioService.buscaFuncionarioPorId(idFuncionario);
 		log.info("[finaliza] FuncionarioRestController - buscaFuncionarioPorId");
-		return null;
+		return funcionarioResponse;
 	}
 
 }
