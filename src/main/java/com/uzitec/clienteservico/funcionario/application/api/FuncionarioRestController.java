@@ -1,5 +1,6 @@
 package com.uzitec.clienteservico.funcionario.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +33,14 @@ public class FuncionarioRestController implements FuncionarioAPI {
 		FuncionarioResponse funcionarioResponse = funcionarioService.buscaFuncionarioPorId(idFuncionario);
 		log.info("[finaliza] FuncionarioRestController - buscaFuncionarioPorId");
 		return funcionarioResponse;
+	}
+
+	@Override
+	public List<FuncionarioResponse> buscaTodosFuncionarios() {
+		log.info("[inicia] FuncionarioRestController - buscaTodosFuncionarios");
+		List<FuncionarioResponse> funcionarios = funcionarioService.buscaTodosFuncionarios();
+		log.info("[finaliza] FuncionarioRestController - buscaTodosFuncionarios");
+		return funcionarios;
 	}
 
 }

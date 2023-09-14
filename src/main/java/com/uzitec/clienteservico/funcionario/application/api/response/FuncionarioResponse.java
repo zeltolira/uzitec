@@ -1,6 +1,8 @@
 package com.uzitec.clienteservico.funcionario.application.api.response;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.uzitec.clienteservico.funcionario.domain.Cargo;
 import com.uzitec.clienteservico.funcionario.domain.Funcionario;
@@ -22,4 +24,11 @@ public class FuncionarioResponse {
 		this.celular = funcionario.getCelular();
 		this.cargo = funcionario.getCargo();
 	}
+
+	public static List<FuncionarioResponse> converte(List<Funcionario> funcinarios) {
+		return funcinarios.stream()
+				.map(FuncionarioResponse::new)
+				.collect(Collectors.toList());
+	}
+	
 }

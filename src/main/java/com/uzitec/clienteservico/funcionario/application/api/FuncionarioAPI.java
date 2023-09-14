@@ -1,5 +1,6 @@
 package com.uzitec.clienteservico.funcionario.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -25,5 +26,9 @@ public interface FuncionarioAPI {
 	@GetMapping(value = "/{idFuncionario}")
 	@ResponseStatus(code = HttpStatus.OK)
 	FuncionarioResponse buscaFuncionarioPorId(@PathVariable UUID idFuncionario);
+	
+	@GetMapping(value = "/funcionarios")
+	@ResponseStatus(code = HttpStatus.OK)
+	List<FuncionarioResponse> buscaTodosFuncionarios();
 	
 }

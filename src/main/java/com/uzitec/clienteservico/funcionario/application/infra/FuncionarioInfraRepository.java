@@ -1,5 +1,6 @@
 package com.uzitec.clienteservico.funcionario.application.infra;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -35,11 +36,19 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 
 	@Override
 	public Funcionario buscaFuncionarioPorId(UUID idFuncionario) {
-		log.info("[inicia]FuncionarioInfraRepository - buscaFuncionarioPorId");
+ 		log.info("[inicia]FuncionarioInfraRepository - buscaFuncionarioPorId");
 		Optional<Funcionario> optinoalFuncionario = funcionarioSpringDataJPARepository.findById(idFuncionario);
 		Funcionario funcionario = optinoalFuncionario.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Funcionário não encontrado"));
 		log.info("[finaliza]FuncionarioInfraRepository - buscaFuncionarioPorId");
 		return funcionario;
+	}
+
+	@Override
+	public List<Funcionario> buscaTodosFuncionarios() {
+		log.info("[inicia]FuncionarioInfraRepository - buscaTodosFuncionarios");
+		List<Funcionario> todosFuncionarios = funcionarioSpringDataJPARepository.findAll();
+		log.info("[finaliza]FuncionarioInfraRepository - buscaTodosFuncionarios");
+		return todosFuncionarios;
 	}
 
 }
