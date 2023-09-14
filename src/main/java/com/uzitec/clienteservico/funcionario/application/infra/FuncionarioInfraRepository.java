@@ -1,5 +1,8 @@
 package com.uzitec.clienteservico.funcionario.application.infra;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -20,7 +23,7 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 
 	@Override
 	public Funcionario salvaFuncionario(Funcionario funcionario) {
-		log.info("[inicia]FuncionarioInfraRepository salvaFuncionario");
+		log.info("[inicia]FuncionarioInfraRepository - salvaFuncionario");
 		try {
 			Funcionario funcionarioCriado = funcionarioSpringDataJPARepository.save(funcionario);
 			log.info("[finaliza]FuncionarioInfraRepository salvaFuncionario");
@@ -28,6 +31,15 @@ public class FuncionarioInfraRepository implements FuncionarioRepository {
 		}catch (DataIntegrityViolationException e) {
 			throw APIException.build(HttpStatus.BAD_REQUEST, "Funcionário já cadastrado");
 		}
+	}
+
+	@Override
+	public Funcionario buscaFuncionarioPorId(UUID idFuncionario) {
+		log.info("[inicia]FuncionarioInfraRepository - buscaFuncionarioPorId");
+		Optional<Funcionario> optinoalFuncionario = funcionarioSpringDataJPARepository.findById(idFuncionario);
+		Funcionario funcionario = optinoalFuncionario.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Funcionário não encontrado"));
+		log.info("[finaliza]FuncionarioInfraRepository - buscaFuncionarioPorId");
+		return funcionario;
 	}
 
 }
