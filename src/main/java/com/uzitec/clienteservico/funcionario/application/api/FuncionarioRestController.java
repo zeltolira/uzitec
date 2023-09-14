@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.funcionario.application.api;
 
+import java.util.UUID;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
@@ -22,6 +24,13 @@ public class FuncionarioRestController implements FuncionarioAPI {
 		FuncionarioResponse funcionarioresponse = funcionarioService.salvaFuncionario(funcionarioRequest);
 		log.info("[finaliza] FuncionarioRestController - salvaFuncionario");
 		return funcionarioresponse;
+	}
+
+	@Override
+	public FuncionarioResponse buscaFuncionarioPorId(UUID idFuncionario) {
+		log.info("[inicia] FuncionarioRestController - buscaFuncionarioPorId");
+		log.info("[finaliza] FuncionarioRestController - buscaFuncionarioPorId");
+		return null;
 	}
 
 }
