@@ -44,4 +44,11 @@ public class FuncionarioApplicationService implements FuncionarioService {
 		return FuncionarioResponse.converte(funcinarios);
 	}
 
+	@Override
+	public void deletaFuncionario(UUID idFuncionario) {
+		log.info("[inicia] FuncionarioApplicationService - deletaFuncionario");
+		funcionariRepository.deletaFuncionario(idFuncionario);
+		log.info("[finaliza] FuncionarioApplicationService - deletaFuncionario");
+	}
+
 }
