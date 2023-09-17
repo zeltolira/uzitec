@@ -1,20 +1,25 @@
 package com.uzitec.clienteservico.cliente.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.uzitec.clienteservico.cliente.application.api.request.ClienteAlteracaoRequest;
 import com.uzitec.clienteservico.cliente.application.api.request.ClienteRequest;
+import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -60,6 +65,9 @@ public class Cliente {
 	
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraultimaAlteracao;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "orcamento", fetch = FetchType.LAZY)
+	private List<Orcamento> oracemento;
 
 	public Cliente(ClienteRequest clienteRequest) {
 		this.nomeCliente = clienteRequest.getNomeCliente();

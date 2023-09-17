@@ -4,10 +4,14 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.uzitec.clienteservico.cliente.domain.Cliente;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,6 +36,8 @@ public class Orcamento {
 	private Integer garantia;
 	
 	private LocalDateTime dataAlteracaoOrcamento;
-
-
+	
+	@ManyToOne
+	@JoinColumn(name = "idCliente")
+	private Cliente cliente;
 }
