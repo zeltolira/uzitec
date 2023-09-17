@@ -1,5 +1,10 @@
 package com.uzitec.clienteservico.orcamento.application.api.response;
 
-public class OrcamentoResponse {
+import lombok.Builder;
+import lombok.Value;
 
+@Value
+@Builder
+public class OrcamentoResponse {
+	private Long idOrcamento;
 }

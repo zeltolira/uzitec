@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.uzitec.clienteservico.cliente.domain.Cliente;
+import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +25,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Orcamento {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordem_servico")
 	@SequenceGenerator(name = "ordem_servico", sequenceName = "ordem_servico")
@@ -40,4 +42,14 @@ public class Orcamento {
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
+	
+	public Orcamento(Cliente cliente, OrcamentoRequest orcamentoRequest) {
+		this.tipoProduto = orcamentoRequest.getTipoProduto();
+		this.marca = orcamentoRequest.getMarca();
+		ServicoAExecultar = orcamentoRequest.getServicoAExecultar();
+		this.valorOrcamento = orcamentoRequest.getValorOrcamento();
+		this.dataOrcamento = orcamentoRequest.getDataOrcamento();
+		this.garantia = orcamentoRequest.getGarantia();
+		this.dataAlteracaoOrcamento = LocalDateTime.now();
+	}
 }
