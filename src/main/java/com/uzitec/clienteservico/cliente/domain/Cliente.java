@@ -10,12 +10,10 @@ import com.uzitec.clienteservico.cliente.application.api.request.ClienteAlteraca
 import com.uzitec.clienteservico.cliente.application.api.request.ClienteRequest;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -66,8 +64,10 @@ public class Cliente {
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraultimaAlteracao;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "orcamento", fetch = FetchType.LAZY)
-	private List<Orcamento> oracemento;
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Orcamento> orcamento;
+
 
 	public Cliente(ClienteRequest clienteRequest) {
 		this.nomeCliente = clienteRequest.getNomeCliente();

@@ -38,6 +38,6 @@ public class Orcamento {
 	private LocalDateTime dataAlteracaoOrcamento;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCliente")
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 }
