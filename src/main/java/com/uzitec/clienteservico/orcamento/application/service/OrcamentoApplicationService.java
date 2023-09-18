@@ -1,5 +1,6 @@
 package com.uzitec.clienteservico.orcamento.application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.uzitec.clienteservico.cliente.application.repository.ClienteRepository;
 import com.uzitec.clienteservico.cliente.domain.Cliente;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
+import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoListResponse;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoResponse;
 import com.uzitec.clienteservico.orcamento.application.repository.OrcamentoRepository;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
@@ -24,12 +26,20 @@ public class OrcamentoApplicationService implements OrcamentoService {
 	@Override
 	public OrcamentoResponse criaOrcamento(UUID idCliente, OrcamentoRequest orcamentoRequest) {
 		log.info("[inicia] OrcamentoApplicationService - criaOrcamento");
-		Cliente cliente =clienteRepository.buscaClientePorId(idCliente);
+		Cliente cliente = clienteRepository.buscaClientePorId(idCliente);
 		Orcamento orcamento = orcamentoRepository.salvaOrcamento(new Orcamento(cliente, orcamentoRequest));
 		log.info("[finaliza] OrcamentoApplicationService - criaOrcamento");
 		return OrcamentoResponse.builder()
 				.idOrcamento(orcamento.getIdOrcamento())
 				.build();
+	}
+	@Override
+	public List<OrcamentoListResponse> getTodosOrcamentosDoCliente(UUID idCliente) {
+		log.info("[inicia] OrcamentoApplicationService - getTodosOrcamentosDoCliente");
+		Cliente cliente = clienteRepository.buscaClientePorId(idCliente);
+		List<Orcamento> orcamento = orcamentoRepository.getTodosOrcamentosDoCliente(cliente);
+		log.info("[finaliza] OrcamentoApplicationService - getTodosOrcamentosDoCliente");
+		return OrcamentoListResponse.converte(orcamento);
 	}
 
 }
