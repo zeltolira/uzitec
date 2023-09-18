@@ -14,6 +14,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,18 +28,27 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "orcamento")
 public class Orcamento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordem_servico")
 	@SequenceGenerator(name = "ordem_servico", sequenceName = "ordem_servico")
 	private Long idOrcamento;
+	@NotNull
 	private TipoProduto tipoProduto;
+	@NotNull
 	private Marca marca;
+	@NotNull
 	private ServicoAExecultar ServicoAExecultar;
+	@NotNull
+	@DecimalMin(value = "0.0", inclusive = false)
 	private BigDecimal valorOrcamento;
+	@NotNull
 	private LocalDate dataOrcamento;
-	private Integer garantia;
+	@NotNull
+    @Min(0)
+	private Integer garantia; // TODO: Implementar a lógica de validação aqui (valido por 10 dias corridos)
 	
 	private LocalDateTime dataAlteracaoOrcamento;
 	

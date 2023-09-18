@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
-import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoListReponse;
+import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoListResponse;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoResponse;
 
 import jakarta.validation.Valid;
@@ -29,7 +29,7 @@ public interface OrcamentoAPI {
 	
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	List<OrcamentoListReponse> getTodosOrcamentoDoCliente(@RequestParam UUID idCliente);
+	List<OrcamentoListResponse> getTodosOrcamentoDoCliente(@RequestParam UUID idCliente);
 	
 	
 }
