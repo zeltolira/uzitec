@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Controller;
 
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
+import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoDetalhadoResponse;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoListResponse;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoResponse;
 import com.uzitec.clienteservico.orcamento.application.service.OrcamentoService;
@@ -34,6 +35,13 @@ public class OrcamentoRestController implements OrcamentoAPI {
 		List<OrcamentoListResponse> orcamentos = orcamentoService.getTodosOrcamentosDoCliente(idCliente);
 		log.info("[finaliza] OrcamentoRestController - getTodosOrcamentoDoCliente");
 		return orcamentos;
+	}
+
+	@Override
+	public OrcamentoDetalhadoResponse getOrcamentoPorId(UUID idCliente, Long idOrcamento) {
+		log.info("[inicia] OrcamentoRestController - getOrcamentoPorId");
+		log.info("[finaliza] OrcamentoRestController - getOrcamentoPorId");
+		return null;
 	}
 
 }

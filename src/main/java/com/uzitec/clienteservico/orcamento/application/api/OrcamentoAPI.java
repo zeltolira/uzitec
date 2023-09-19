@@ -33,7 +33,7 @@ public interface OrcamentoAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<OrcamentoListResponse> getTodosOrcamentoDoCliente(@RequestParam UUID idCliente);
 	
-	@GetMapping(value = "/{idOrcamento")
+	@GetMapping(value = "/{idOrcamento}")
 	@ResponseStatus(value = HttpStatus.OK)
 	OrcamentoDetalhadoResponse getOrcamentoPorId(@RequestParam UUID idCliente, @PathVariable Long idOrcamento);
 }
