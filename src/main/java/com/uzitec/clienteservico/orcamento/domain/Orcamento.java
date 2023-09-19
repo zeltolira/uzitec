@@ -44,6 +44,7 @@ public class Orcamento {
 	@NotNull
 	@DecimalMin(value = "0.0", inclusive = false)
 	private BigDecimal valorOrcamento;
+	private String observacao;
 	@NotNull
 	private LocalDate dataOrcamento;
 	@NotNull
@@ -61,6 +62,7 @@ public class Orcamento {
 		this.marca = orcamentoRequest.getMarca();
 		ServicoAExecultar = orcamentoRequest.getServicoAExecultar();
 		this.valorOrcamento = orcamentoRequest.getValorOrcamento();
+		this.observacao = orcamentoRequest.getObservacao();
 		this.dataOrcamento = orcamentoRequest.getDataOrcamento();
 		this.garantia = orcamentoRequest.getGarantia();
 		this.dataAlteracaoOrcamento = LocalDateTime.now();

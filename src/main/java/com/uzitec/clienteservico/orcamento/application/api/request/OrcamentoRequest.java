@@ -15,6 +15,7 @@ public class OrcamentoRequest {
 	private Marca marca;
 	private ServicoAExecultar ServicoAExecultar;
 	private BigDecimal valorOrcamento;
+	private String observacao;
 	private LocalDate dataOrcamento;
 	private Integer garantia;
 }
