@@ -40,8 +40,8 @@ public class OrcamentoRestController implements OrcamentoAPI {
 	@Override
 	public OrcamentoDetalhadoResponse getOrcamentoPorId(UUID idCliente, Long idOrcamento) {
 		log.info("[inicia] OrcamentoRestController - getOrcamentoPorId");
+		OrcamentoDetalhadoResponse orcamentoDetalhado = orcamentoService.getOrcamentoPorId(idCliente, idOrcamento);
 		log.info("[finaliza] OrcamentoRestController - getOrcamentoPorId");
-		return null;
+		return orcamentoDetalhado;
 	}
-
 }
