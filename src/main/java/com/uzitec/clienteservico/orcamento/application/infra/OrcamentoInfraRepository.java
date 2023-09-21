@@ -2,9 +2,11 @@ package com.uzitec.clienteservico.orcamento.application.infra;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import com.uzitec.clienteservico.cliente.domain.Cliente;
+import com.uzitec.clienteservico.handler.APIException;
 import com.uzitec.clienteservico.orcamento.application.repository.OrcamentoRepository;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 
@@ -32,6 +34,15 @@ public class OrcamentoInfraRepository implements OrcamentoRepository {
 		List<Orcamento> todosOrcamentos = orcamentoSpringDataJPARepository.findByCliente(cliente);
 		log.info("[finaliza]OrcamentoInfraRepository - getTodosOrcamentosDoCliente");
 		return todosOrcamentos;
+	}
+
+	@Override
+	public Orcamento getOrcamentoPorId(Long idOrcamento) {
+		log.info("[inicia]OrcamentoInfraRepository - getOrcamentoPorId");
+		var orcamento = orcamentoSpringDataJPARepository.findById(idOrcamento)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Orçamento não encontrado para o cliente"));
+		log.info("[finaliza]OrcamentoInfraRepository - getOrcamentoPorId");
+		return orcamento;
 	}
 
 }
