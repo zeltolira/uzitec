@@ -8,4 +8,5 @@ import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 public interface OrcamentoRepository {
 	Orcamento salvaOrcamento(Orcamento orcamento);
 	List<Orcamento> getTodosOrcamentosDoCliente(Cliente cliente);
+	Orcamento getOrcamentoPorId(Long idOrcamento);
 }
