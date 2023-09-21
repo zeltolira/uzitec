@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatchRequest;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoDetalhadoResponse;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoListResponse;
@@ -36,4 +38,9 @@ public interface OrcamentoAPI {
 	@GetMapping(value = "/{idOrcamento}")
 	@ResponseStatus(value = HttpStatus.OK)
 	OrcamentoDetalhadoResponse getOrcamentoPorId(@RequestParam UUID idCliente, @PathVariable Long idOrcamento);
+
+	@PatchMapping(value = "/{idOrcamento}")
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	void patchOrcamento(@PathVariable Long idOrcamento, @Valid @RequestBody OrcamentoPatchRequest orcamentoPatchRequest);
+	
 }
