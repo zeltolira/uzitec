@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import com.uzitec.clienteservico.orcamento.domain.Marca;
+import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecultar;
 import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
 
@@ -19,4 +20,15 @@ public class OrcamentoDetalhadoResponse {
 	private String observacao;
 	private LocalDate dataOrcamento;
 	private Integer garantia;
+
+	public OrcamentoDetalhadoResponse(Orcamento orcamento) {
+		this.idOrcamento = orcamento.getIdOrcamento();
+		this.tipoProduto = orcamento.getTipoProduto();
+		this.marca = orcamento.getMarca();
+		this.ServicoAExecultar = orcamento.getServicoAExecultar();
+		this.valorOrcamento = orcamento.getValorOrcamento();
+		this.observacao = orcamento.getObservacao();
+		this.dataOrcamento = orcamento.getDataOrcamento();
+		this.garantia = orcamento.getGarantia();
+	}
 }
