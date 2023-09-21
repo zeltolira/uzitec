@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.uzitec.clienteservico.cliente.domain.Cliente;
+import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatchRequest;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
 
 import jakarta.persistence.Entity;
@@ -66,5 +67,17 @@ public class Orcamento {
 		this.dataOrcamento = orcamentoRequest.getDataOrcamento();
 		this.garantia = orcamentoRequest.getGarantia();
 		this.dataAlteracaoOrcamento = LocalDateTime.now();
+	}
+
+	public void patch(OrcamentoPatchRequest orcamentoRequest) {
+		this.tipoProduto = orcamentoRequest.getTipoProduto();
+		this.marca = orcamentoRequest.getMarca();
+		this.ServicoAExecultar = orcamentoRequest.getServicoAExecultar();
+		this.valorOrcamento = orcamentoRequest.getValorOrcamento();
+		this.observacao = orcamentoRequest.getObservacao();
+		this.dataOrcamento = orcamentoRequest.getDataOrcamento();
+		this.garantia = orcamentoRequest.getGarantia();
+		this.dataAlteracaoOrcamento = LocalDateTime.now();
+		
 	}
 }

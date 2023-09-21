@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.uzitec.clienteservico.cliente.application.repository.ClienteRepository;
 import com.uzitec.clienteservico.cliente.domain.Cliente;
+import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatchRequest;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoDetalhadoResponse;
 import com.uzitec.clienteservico.orcamento.application.api.response.OrcamentoListResponse;
@@ -49,6 +50,14 @@ public class OrcamentoApplicationService implements OrcamentoService {
 		Orcamento orcamento = orcamentoRepository.getOrcamentoPorId(idOrcamento);
 		log.info("[inicia] OrcamentoApplicationService - getOrcamentoPorId");
 		return new OrcamentoDetalhadoResponse(orcamento);
+	}
+	@Override
+	public void patchOrcamento(Long idOrcamento, OrcamentoPatchRequest orcamentoPatchRequest) {
+		log.info("[inicia] OrcamentoApplicationService - patchOrcamento");
+		Orcamento orcamento = orcamentoRepository.getOrcamentoPorId(idOrcamento);
+		orcamento.patch(orcamentoPatchRequest);
+		orcamentoRepository.salvaOrcamento(orcamento);
+		log.info("[finaliza] OrcamentoApplicationService - patchOrcamento");
 	}
 
 }
