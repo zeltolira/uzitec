@@ -52,4 +52,12 @@ public class OrcamentoRestController implements OrcamentoAPI {
 		orcamentoService.patchOrcamento(idOrcamento, orcamentoPatchRequest);
 		log.info("[finaliza] OrcamentoRestController - patchOrcamento");
 	}
+
+	@Override
+	public void deleteOrcamento(Long idOrcamento) {
+		log.info("[inicia] OrcamentoRestController - deleteOrcamento");
+		orcamentoService.deleteOrcamento(idOrcamento);
+		log.info("[finaliza] OrcamentoRestController - deleteOrcamento");
+		
+	}
 }

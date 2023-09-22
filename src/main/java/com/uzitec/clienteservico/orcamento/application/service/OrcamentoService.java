@@ -14,4 +14,5 @@ public interface OrcamentoService {
 	List<OrcamentoListResponse> getTodosOrcamentosDoCliente(UUID idCliente);
 	OrcamentoDetalhadoResponse getOrcamentoPorId(UUID idCliente, Long idOrcamento);
 	void patchOrcamento(Long idOrcamento, OrcamentoPatchRequest orcamentoPatchRequest);
+	void deleteOrcamento(Long idOrcamento);
 }

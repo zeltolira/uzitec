@@ -45,4 +45,12 @@ public class OrcamentoInfraRepository implements OrcamentoRepository {
 		return orcamento;
 	}
 
+	@Override
+	public void deleteOrcamento(Long idOrcamento) {
+		log.info("[inicia]OrcamentoInfraRepository - deleteOrcamento");
+		orcamentoSpringDataJPARepository.deleteById(idOrcamento);
+		log.info("[finaliza]OrcamentoInfraRepository - deleteOrcamento");
+		
+	}
+
 }

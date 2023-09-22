@@ -34,14 +34,14 @@ public class Orcamento {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordem_servico")
-	@SequenceGenerator(name = "ordem_servico", sequenceName = "ordem_servico")
+	@SequenceGenerator(name = "orcamento", sequenceName = "orcamento")
 	private Long idOrcamento;
 	@NotNull
 	private TipoProduto tipoProduto;
 	@NotNull
 	private Marca marca;
 	@NotNull
-	private ServicoAExecultar ServicoAExecultar;
+	private ServicoAExecutar ServicoAExecultar;
 	@NotNull
 	@DecimalMin(value = "0.0", inclusive = false)
 	private BigDecimal valorOrcamento;

@@ -59,5 +59,12 @@ public class OrcamentoApplicationService implements OrcamentoService {
 		orcamentoRepository.salvaOrcamento(orcamento);
 		log.info("[finaliza] OrcamentoApplicationService - patchOrcamento");
 	}
+	@Override
+	public void deleteOrcamento(Long idOrcamento) {
+		log.info("[inicia] OrcamentoApplicationService - deleteOrcamento");
+		orcamentoRepository.deleteOrcamento(orcamentoRepository.getOrcamentoPorId(idOrcamento).getIdOrcamento());
+		log.info("[finaliza] OrcamentoApplicationService - deleteOrcamento");
+		
+	}
 
 }

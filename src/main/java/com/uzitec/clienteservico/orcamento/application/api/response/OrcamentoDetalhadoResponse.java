@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecultar;
+import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
 
 import lombok.Value;
@@ -15,7 +15,7 @@ public class OrcamentoDetalhadoResponse {
 	private Long idOrcamento;
 	private TipoProduto tipoProduto;
 	private Marca marca;
-	private ServicoAExecultar ServicoAExecultar;
+	private ServicoAExecutar ServicoAExecultar;
 	private BigDecimal valorOrcamento;
 	private String observacao;
 	private LocalDate dataOrcamento;
