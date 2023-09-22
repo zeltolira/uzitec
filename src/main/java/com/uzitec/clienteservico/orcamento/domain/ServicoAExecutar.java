@@ -1,5 +1,5 @@
 package com.uzitec.clienteservico.orcamento.domain;
 
-public enum ServicoAExecultar {
+public enum ServicoAExecutar {
 	TROCA_PLACA, CONCERTO_PLACA, RESTAURACAO_PLACA
 }
