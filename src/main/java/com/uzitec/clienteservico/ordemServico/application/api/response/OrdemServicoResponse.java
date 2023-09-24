@@ -1,4 +1,4 @@
-package com.uzitec.clienteservico.Servico.application.api.response;
+package com.uzitec.clienteservico.ordemServico.application.api.response;
 
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
