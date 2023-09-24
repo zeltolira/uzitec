@@ -1,4 +1,4 @@
-package com.uzitec.clienteservico.orcamento.application.infra;
+package com.uzitec.clienteservico.orcamento.infra;
 
 import java.util.List;
 

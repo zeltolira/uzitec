@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.ordemServico.application.api.request;
 
+import java.util.UUID;
+
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
@@ -14,4 +16,5 @@ public class OrdemServicoRequest {
 	private Marca tipoMarca;
 	private ServicoAExecutar servicoAExecutar;
 	private String observacao;
+	
 }

@@ -1,4 +1,4 @@
-package com.uzitec.clienteservico.funcionario.application.infra;
+package com.uzitec.clienteservico.funcionario.infra;
 
 import java.util.List;
 import java.util.Optional;
