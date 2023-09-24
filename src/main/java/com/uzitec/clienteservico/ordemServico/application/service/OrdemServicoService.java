@@ -4,5 +4,6 @@ import com.uzitec.clienteservico.ordemServico.application.api.request.OrdemServi
 import com.uzitec.clienteservico.ordemServico.application.api.response.OrdemServicoResponse;
 
 public interface OrdemServicoService {
-	OrdemServicoResponse postOrdemServico(OrdemServicoRequest ordemServicoRequest);
+	OrdemServicoResponse saveOrdemServico(OrdemServicoRequest ordemServicoRequest);
+	OrdemServicoResponse findOrdemServicoById(Long idOrdemServico);
 }

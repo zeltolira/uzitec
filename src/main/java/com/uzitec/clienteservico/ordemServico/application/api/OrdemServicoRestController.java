@@ -14,14 +14,22 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 public class OrdemServicoRestController implements OrdemServicoAPI {
 
-	private final OrdemServicoService ordeServicoService;
+	private final OrdemServicoService ordemServicoService;
 
 	@Override
-	public OrdemServicoResponse postOrdemServico(OrdemServicoRequest ordemServicoRequest) {
-		log.info("[inicia] OrdemServicoRestController - postOrdemServico");
-		OrdemServicoResponse ordemServicoCriada = ordeServicoService.postOrdemServico(ordemServicoRequest);
-		log.info("[finaliza] OrdemServicoRestController - postOrdemServico");
+	public OrdemServicoResponse saveOrdemServico(OrdemServicoRequest ordemServicoRequest) {
+		log.info("[inicia] OrdemServicoRestController - saveOrdemServico");
+		OrdemServicoResponse ordemServicoCriada = ordemServicoService.saveOrdemServico(ordemServicoRequest);
+		log.info("[finaliza] OrdemServicoRestController - saveOrdemServico");
 		return ordemServicoCriada;
+	}
+
+	@Override
+	public OrdemServicoResponse findOrdemServicoById(Long idOrdemServico) {
+		log.info("[inicia] OrdemServicoRestController - findOrdemServicoById");
+		OrdemServicoResponse ordemServicoResponse = ordemServicoService.findOrdemServicoById(idOrdemServico);
+		log.info("[finaliza] OrdemServicoRestController - findOrdemServicoById");
+		return ordemServicoResponse;
 	}
 
 }
