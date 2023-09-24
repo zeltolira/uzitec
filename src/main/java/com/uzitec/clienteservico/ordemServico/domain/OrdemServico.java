@@ -3,6 +3,7 @@ package com.uzitec.clienteservico.ordemServico.domain;
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
+import com.uzitec.clienteservico.ordemServico.application.api.request.OrdemServicoRequest;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -37,6 +38,10 @@ public class OrdemServico {
 	private ServicoAExecutar servicoAExecutar;
 	private String observacao;
 	
-	
-	
+	public OrdemServico(OrdemServicoRequest ordemServicoRequest) {
+		this.tipoProduto = ordemServicoRequest.getTipoProduto();
+		this.tipoMarca = ordemServicoRequest.getTipoMarca();
+		this.servicoAExecutar = ordemServicoRequest.getServicoAExecutar();
+		this.observacao = ordemServicoRequest.getObservacao();
+	}
 }
