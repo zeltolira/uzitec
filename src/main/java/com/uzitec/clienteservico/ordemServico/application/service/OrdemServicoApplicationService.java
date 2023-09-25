@@ -2,6 +2,10 @@ package com.uzitec.clienteservico.ordemServico.application.service;
 
 import org.springframework.stereotype.Service;
 
+import com.uzitec.clienteservico.funcionario.application.repository.FuncionarioRepository;
+import com.uzitec.clienteservico.funcionario.domain.Funcionario;
+import com.uzitec.clienteservico.orcamento.application.repository.OrcamentoRepository;
+import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 import com.uzitec.clienteservico.ordemServico.application.api.request.OrdemServicoRequest;
 import com.uzitec.clienteservico.ordemServico.application.api.response.OrdemServicoResponse;
 import com.uzitec.clienteservico.ordemServico.application.repository.OrdemServicoRepository;
@@ -16,15 +20,20 @@ import lombok.extern.log4j.Log4j2;
 public class OrdemServicoApplicationService implements OrdemServicoService {
 
 	private final OrdemServicoRepository ordemServicoRepository;
+	private final FuncionarioRepository funcionarioRepository;
+	private final OrcamentoRepository orcamentoRepository;
+//	private final ServicoRepository servicoRepository;
 
 	@Override
 	public OrdemServicoResponse saveOrdemServico(OrdemServicoRequest ordemServicoRequest) {
 		log.info("[inicia] OrdemServiceApplicationService - postOrdemServico");
-		OrdemServico ordemServico = ordemServicoRepository.saveOrdemServico(new OrdemServico(ordemServicoRequest));
+		Funcionario funcionario = funcionarioRepository.buscaFuncionarioPorId(ordemServicoRequest.getIdFuncionario());
+		Orcamento orcamento = orcamentoRepository.getOrcamentoPorId(ordemServicoRequest.getIdOrcamento());
+//		Servico Servico = servicoRepository.getServicoPorId(ordemServicoRequest.getIdServico());
+		OrdemServico ordemServico = ordemServicoRepository.saveOrdemServico(new OrdemServico(funcionario, orcamento, ordemServicoRequest));
+		orcamentoRepository.deleteOrcamento(ordemServicoRequest.getIdOrcamento());
 		log.info("[finaliza] OrdemServiceApplicationService - postOrdemServico");
-		return OrdemServicoResponse.builder()
-				.idOrdemServico(ordemServico.getIdOrdemServico())
-				.build();
+		return new OrdemServicoResponse(ordemServico);
 	}
 
 	@Override

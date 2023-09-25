@@ -18,9 +18,9 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
 	@Override
 	public OrdemServico saveOrdemServico(OrdemServico ordemServico) {
 		log.info("[inicia] OrdemServicoInfraRepository - postOrdemServico");
-		ordemServicoSpringJPARepository.save(ordemServico);
+		OrdemServico ordemServicoCriado = ordemServicoSpringJPARepository.save(ordemServico);
 		log.info("[finaliza] OrdemServicoInfraRepository - postOrdemServico");
-		return ordemServico;
+		return ordemServicoCriado;
 	}
 
 }

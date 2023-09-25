@@ -1,6 +1,7 @@
 package com.uzitec.clienteservico.ordemServico.application.api.request;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
@@ -17,5 +18,8 @@ public class OrdemServicoRequest {
 	private ServicoAExecutar servicoAExecutar;
 	private String observacao;
 	private LocalDate dataEntrega;
+	private UUID idFuncionario;
+	private Long idOrcamento;
+	private Long idServico;
 	
 }
