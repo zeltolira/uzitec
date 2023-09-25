@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.cliente.domain.Cliente;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatchRequest;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
@@ -55,8 +56,12 @@ public class Orcamento {
 	private LocalDateTime dataAlteracaoOrcamento;
 	
 	@ManyToOne
-	@JoinColumn
+	@JsonIgnore
 	private Cliente cliente;
+	
+//	@ManyToOne
+//	@JsonIgnore
+//	private Servico servico;
 	
 	public Orcamento(Cliente cliente, OrcamentoRequest orcamentoRequest) {
 		this.tipoProduto = orcamentoRequest.getTipoProduto();

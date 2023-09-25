@@ -1,19 +1,25 @@
 package com.uzitec.clienteservico.funcionario.domain;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.funcionario.application.api.request.AlteraFuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
+import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,6 +45,14 @@ public class Funcionario {
 	private String celular;
 	@Enumerated(EnumType.STRING)
 	private Cargo cargo;
+	
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "funcionario")
+//	@JsonIgnore
+//	private List<Servico> servicos;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "funcionario")
+	@JsonIgnore
+	private List<OrdemServico> ordemServico;
 	
 	public Funcionario(FuncionarioRequest funcionarioRequest) {
 		this.nomeFuncionario = funcionarioRequest.getNomeFuncionario();

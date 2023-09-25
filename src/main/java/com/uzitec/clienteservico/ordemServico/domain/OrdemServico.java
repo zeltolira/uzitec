@@ -1,5 +1,9 @@
 package com.uzitec.clienteservico.ordemServico.domain;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.uzitec.clienteservico.funcionario.domain.Funcionario;
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
@@ -11,6 +15,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -37,6 +42,15 @@ public class OrdemServico {
 	@Enumerated(EnumType.STRING)
 	private ServicoAExecutar servicoAExecutar;
 	private String observacao;
+	private LocalDate dataEntrega;
+	
+	@OneToOne
+	@JsonIgnore
+	private Funcionario funcionario;
+
+//	@OneToOne
+//	@JsonIgnore
+//	private Servico servico;
 	
 	public OrdemServico(OrdemServicoRequest ordemServicoRequest) {
 		this.tipoProduto = ordemServicoRequest.getTipoProduto();
