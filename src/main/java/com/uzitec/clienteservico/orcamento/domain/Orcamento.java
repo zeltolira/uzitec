@@ -13,7 +13,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -34,7 +33,7 @@ import lombok.Setter;
 public class Orcamento {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordem_servico")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orcamento")
 	@SequenceGenerator(name = "orcamento", sequenceName = "orcamento")
 	private Long idOrcamento;
 	@NotNull
