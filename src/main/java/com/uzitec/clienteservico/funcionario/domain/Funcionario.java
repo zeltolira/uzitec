@@ -5,32 +5,28 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.funcionario.application.api.request.AlteraFuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
 import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Setter
 @Entity
 @Table(name = "funcionario")
 public class Funcionario {
@@ -52,8 +48,7 @@ public class Funcionario {
 //	@JsonIgnore
 //	private List<Servico> servicos;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "funcionario")
-	@JsonIgnore
+	@OneToMany(mappedBy = "funcionario")
 	private List<OrdemServico> ordemServico;
 	
 	public Funcionario(FuncionarioRequest funcionarioRequest) {
