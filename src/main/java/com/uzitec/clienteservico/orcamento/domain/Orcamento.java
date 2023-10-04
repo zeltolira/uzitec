@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.cliente.domain.Cliente;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatchRequest;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
@@ -13,27 +12,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Setter
 @Entity
 @Table(name = "orcamento")
 public class Orcamento {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orcamento")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "orcamento", sequenceName = "orcamento")
 	private Long idOrcamento;
 	@NotNull
@@ -55,7 +54,7 @@ public class Orcamento {
 	private LocalDateTime dataAlteracaoOrcamento;
 	
 	@ManyToOne
-	@JsonIgnore
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
 //	@ManyToOne
@@ -65,7 +64,7 @@ public class Orcamento {
 	public Orcamento(Cliente cliente, OrcamentoRequest orcamentoRequest) {
 		this.tipoProduto = orcamentoRequest.getTipoProduto();
 		this.marca = orcamentoRequest.getMarca();
-		ServicoAExecultar = orcamentoRequest.getServicoAExecultar();
+		this.ServicoAExecultar = orcamentoRequest.getServicoAExecultar();
 		this.valorOrcamento = orcamentoRequest.getValorOrcamento();
 		this.observacao = orcamentoRequest.getObservacao();
 		this.dataOrcamento = orcamentoRequest.getDataOrcamento();
