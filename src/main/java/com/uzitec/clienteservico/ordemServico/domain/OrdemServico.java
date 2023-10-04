@@ -2,7 +2,6 @@ package com.uzitec.clienteservico.ordemServico.domain;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.funcionario.domain.Funcionario;
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
@@ -16,24 +15,24 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Setter
 @Entity
 @Table(name = "ordem_servico")
 public class OrdemServico {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordem_servico")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "ordem_servico", sequenceName = "ordem_servico")
 	private Long idOrdemServico;
 	@Enumerated(EnumType.STRING)
@@ -44,22 +43,21 @@ public class OrdemServico {
 	private ServicoAExecutar servicoAExecutar;
 	private String observacao;
 	private LocalDate dataEntrega;
-	
+
 	@OneToOne
-	@JsonIgnore
-	private Funcionario funcionario;
+    @JoinColumn(name = "funcionario_id")
+    private Funcionario funcionario;
 
 //	@OneToOne
 //	@JsonIgnore
 //	private Servico servico;
-	
+
 	public OrdemServico(Funcionario funcionario, Orcamento orcamento, OrdemServicoRequest ordemServicoRequest) {
 		this.tipoProduto = ordemServicoRequest.getTipoProduto();
 		this.tipoMarca = ordemServicoRequest.getTipoMarca();
 		this.servicoAExecutar = ordemServicoRequest.getServicoAExecutar();
 		this.observacao = ordemServicoRequest.getObservacao();
-		this.funcionario = funcionario;
+//		this.funcionario = funcionario;
 	}
 
-	
 }
