@@ -24,4 +24,10 @@ public interface OrdemServicoAPI {
 	@GetMapping(value = "/{idOrdemServico}")
 	@ResponseStatus(value = HttpStatus.OK)
 	OrdemServicoResponse findOrdemServicoById(@Valid Long idOrdemServico);
+
+	@GetMapping(value = "/allOrdemServico")
+	@ResponseStatus(value = HttpStatus.OK)
+	OrdemServicoResponse findAllOrdemServico();
+	
+	
 }
