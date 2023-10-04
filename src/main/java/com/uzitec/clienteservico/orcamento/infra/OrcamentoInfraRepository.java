@@ -23,9 +23,9 @@ public class OrcamentoInfraRepository implements OrcamentoRepository {
 	@Override
 	public Orcamento salvaOrcamento(Orcamento orcamento) {
 		log.info("[inicia]OrcamentoInfraRepository - salvaOrcamento");
-		orcamentoSpringDataJPARepository.save(orcamento);
+		Orcamento orcamentoCriado = orcamentoSpringDataJPARepository.save(orcamento);
 		log.info("[finaliza]OrcamentoInfraRepository - salvaOrcamento");
-		return orcamento;
+		return orcamentoCriado;
 	}
 
 	@Override
