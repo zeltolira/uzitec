@@ -4,4 +4,5 @@ import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
 
 public interface OrdemServicoRepository {
 	OrdemServico saveOrdemServico(OrdemServico ordemServico);
+	OrdemServico findByOrdemServicoById(Long idOrdemServico);
 }
