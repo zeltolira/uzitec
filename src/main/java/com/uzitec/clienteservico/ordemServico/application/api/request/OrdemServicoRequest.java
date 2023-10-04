@@ -12,7 +12,6 @@ import lombok.Value;
 @Value
 public class OrdemServicoRequest {
 
-	private Long idOrdemServico;
 	private TipoProduto tipoProduto;
 	private Marca tipoMarca;
 	private ServicoAExecutar servicoAExecutar;
@@ -20,6 +19,5 @@ public class OrdemServicoRequest {
 	private LocalDate dataEntrega;
 	private UUID idFuncionario;
 	private Long idOrcamento;
-	private Long idServico;
 	
 }
