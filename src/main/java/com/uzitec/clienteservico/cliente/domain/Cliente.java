@@ -23,13 +23,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Table(name = "cliente")
@@ -66,7 +64,7 @@ public class Cliente {
 	
 	
 	@OneToMany(mappedBy = "cliente")
-	private List<Orcamento> orcamento;
+	private List<Orcamento> orcamentos;
 
 
 	public Cliente(ClienteRequest clienteRequest) {
