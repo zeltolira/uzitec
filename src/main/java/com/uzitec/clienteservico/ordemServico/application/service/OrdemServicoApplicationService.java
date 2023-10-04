@@ -39,8 +39,9 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 	@Override
 	public OrdemServicoResponse findOrdemServicoById(Long idOrdemServico) {
 		log.info("[inicia] OrdemServiceApplicationService - findOrdemServicoById");
+		OrdemServico ordemServico = ordemServicoRepository.findByOrdemServicoById(idOrdemServico);
 		log.info("[finaliza] OrdemServiceApplicationService - findOrdemServicoById");
-		return null;
+		return new OrdemServicoResponse(ordemServico);
 	}
 
 }
