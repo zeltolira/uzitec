@@ -3,7 +3,7 @@ package com.uzitec.clienteservico.orcamento.application.api;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatchRequest;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
@@ -15,7 +15,7 @@ import com.uzitec.clienteservico.orcamento.application.service.OrcamentoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-@Controller
+@RestController
 @Log4j2
 @RequiredArgsConstructor
 public class OrcamentoRestController implements OrcamentoAPI {
