@@ -1,5 +1,8 @@
 package com.uzitec.clienteservico.ordemServico.application.api.response;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
@@ -24,5 +27,9 @@ public class OrdemServicoResponse {
 		this.observacao = ordemServico.getObservacao();
 	}
 
-	
+	public static List<OrdemServicoResponse> converte(List<OrdemServico> ordemServicos) {
+		return ordemServicos.stream()
+				.map(OrdemServicoResponse::new)
+				.collect(Collectors.toList());
+	}
 }

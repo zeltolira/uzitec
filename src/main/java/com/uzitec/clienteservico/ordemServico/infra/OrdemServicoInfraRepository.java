@@ -1,5 +1,6 @@
 package com.uzitec.clienteservico.ordemServico.infra;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,14 @@ public class OrdemServicoInfraRepository implements OrdemServicoRepository {
 		OrdemServico ordemServico = optionalOrdemServico.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Ordem de servico não encontrada!"));
 		log.info("[finaliza] OrdemServicoInfraRepository - findByOrdemServicoById");
 		return ordemServico;
+	}
+
+	@Override
+	public List<OrdemServico> findAllOrdemServico() {
+		log.info("[inicia] OrdemServicoInfraRepository - findAllOrdemServico");
+		List<OrdemServico> allOrdemServico = ordemServicoSpringJPARepository.findAll();
+		log.info("[finaliza] OrdemServicoInfraRepository - findAllOrdemServico");
+		return allOrdemServico;
 	}
 
 }

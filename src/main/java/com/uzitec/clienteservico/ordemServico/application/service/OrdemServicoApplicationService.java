@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.ordemServico.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.uzitec.clienteservico.funcionario.application.repository.FuncionarioRepository;
@@ -43,5 +45,15 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 		log.info("[finaliza] OrdemServiceApplicationService - findOrdemServicoById");
 		return new OrdemServicoResponse(ordemServico);
 	}
+
+	@Override
+	public List<OrdemServicoResponse> findAllOrdemServico() {
+		log.info("[inicia] OrdemServiceApplicationService - findAllOrdemServico");
+		List<OrdemServico> ordemServicos = ordemServicoRepository.findAllOrdemServico();
+		log.info("[finaliza] OrdemServiceApplicationService - findAllOrdemServico");
+		return OrdemServicoResponse.converte(ordemServicos);
+	}
+
+	
 
 }
