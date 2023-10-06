@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.ordemServico.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uzitec.clienteservico.ordemServico.application.api.request.OrdemServicoRequest;
@@ -33,11 +35,11 @@ public class OrdemServicoRestController implements OrdemServicoAPI {
 	}
 
 	@Override
-	public OrdemServicoResponse findAllOrdemServico() {
+	public List<OrdemServicoResponse> findAllOrdemServico() {
 		log.info("[inicia] OrdemServicoRestController - findAllOrdemServico");
-		ordemServicoService.findAllOrdemServico();
+		List<OrdemServicoResponse> listOrdemServico = ordemServicoService.findAllOrdemServico();
 		log.info("[finaliza] OrdemServicoRestController - findAllOrdemServico");
-		return null;
+		return listOrdemServico;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.ordemServico.application.api;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +29,7 @@ public interface OrdemServicoAPI {
 
 	@GetMapping(value = "/allOrdemServico")
 	@ResponseStatus(value = HttpStatus.OK)
-	OrdemServicoResponse findAllOrdemServico();
+	List<OrdemServicoResponse> findAllOrdemServico();
 	
 	
 }
