@@ -6,4 +6,5 @@ import com.uzitec.clienteservico.ordemServico.application.api.response.OrdemServ
 public interface OrdemServicoService {
 	OrdemServicoResponse saveOrdemServico(OrdemServicoRequest ordemServicoRequest);
 	OrdemServicoResponse findOrdemServicoById(Long idOrdemServico);
+	void findAllOrdemServico();
 }

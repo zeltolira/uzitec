@@ -35,7 +35,7 @@ public class OrdemServicoRestController implements OrdemServicoAPI {
 	@Override
 	public OrdemServicoResponse findAllOrdemServico() {
 		log.info("[inicia] OrdemServicoRestController - findAllOrdemServico");
-		
+		ordemServicoService.findAllOrdemServico();
 		log.info("[finaliza] OrdemServicoRestController - findAllOrdemServico");
 		return null;
 	}
