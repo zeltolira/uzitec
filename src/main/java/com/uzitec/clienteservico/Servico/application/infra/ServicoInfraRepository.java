@@ -30,4 +30,11 @@ public class ServicoInfraRepository implements ServicoRepository {
 		return servico;
 	}
 
+	@Override
+	public Servico findServicoById(Long idServico) {
+		log.info("[inicia] ServicoInfraRepository - findServicoById");
+		log.info("[finaliza] ServicoInfraRepository - findServicoById");
+		return null;
+	}
+
 }
