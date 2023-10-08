@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.Servico.application.api;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,5 +25,9 @@ public interface ServicoAPI {
 	@GetMapping(value = "/{idServico}")
 	@ResponseStatus(code = HttpStatus.OK)
 	ServicoResponse findServicoById(@PathVariable Long idServico);
+
+	@GetMapping(value = "/allServicos")
+	@ResponseStatus(code = HttpStatus.OK)
+	List<ServicoResponse> findAllServico();
 
 }
