@@ -8,4 +8,5 @@ public interface ServicoRepository {
 	Servico postServico(Servico servico);
 	Servico findServicoById(Long idServico);
 	List<Servico> findAllServico();
+	void deleteServico(Long idServico);
 }

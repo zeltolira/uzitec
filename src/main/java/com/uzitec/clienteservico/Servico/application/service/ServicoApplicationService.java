@@ -43,4 +43,13 @@ public class ServicoApplicationService implements ServicoService {
 		return ServicoResponse.converte(servicos);
 	}
 
+	@Override
+	public void deleteServico(Long idServico) {
+		log.info("[inicia]ServicoApplicationService - deleteServico");
+		Servico servico = servicoRepository.findServicoById(idServico);
+		servicoRepository.deleteServico(servico.getIdServico());
+		log.info("[finaliza]ServicoApplicationService - deleteServico");
+		// TODO Auto-generated method stub
+		
+	}
 }
