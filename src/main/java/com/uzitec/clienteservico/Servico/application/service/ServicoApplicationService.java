@@ -49,7 +49,5 @@ public class ServicoApplicationService implements ServicoService {
 		Servico servico = servicoRepository.findServicoById(idServico);
 		servicoRepository.deleteServico(servico.getIdServico());
 		log.info("[finaliza]ServicoApplicationService - deleteServico");
-		// TODO Auto-generated method stub
-		
 	}
 }

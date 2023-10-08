@@ -50,4 +50,11 @@ public class ServicoInfraRepository implements ServicoRepository {
 		return allServicos;
 	}
 
+	@Override
+	public void deleteServico(Long idServico) {
+		log.info("[inicia] ServicoInfraRepository - deleteServico");
+		servicoSpringDataJPARepository.deleteById(idServico);
+		log.info("[finaliza] ServicoInfraRepository - deleteServico");		
+	}
+
 }
