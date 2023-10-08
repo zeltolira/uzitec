@@ -3,6 +3,7 @@ package com.uzitec.clienteservico.Servico.domain;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.uzitec.clienteservico.Servico.application.api.request.ServicoRequest;
 import com.uzitec.clienteservico.funcionario.domain.Funcionario;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 
@@ -22,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "servico")
 public class Servico {
+
 	private Long idServico;
 	private ServicoAExecutar servicoExecutado;
 	private BigDecimal ValorServico;
@@ -31,4 +33,11 @@ public class Servico {
 	@JoinColumn(name = "funcionario_id")
 	@JsonIgnore
 	private Funcionario funcionario;
+
+	public Servico(ServicoRequest servicoRequest) {
+		this.servicoExecutado = servicoRequest.getServicoExecutado();
+		this.ValorServico = servicoRequest.getValorServico();
+	}
+
+
 }
