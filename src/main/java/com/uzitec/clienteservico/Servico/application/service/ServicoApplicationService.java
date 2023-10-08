@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.Servico.application.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.uzitec.clienteservico.Servico.application.api.request.ServicoRequest;
@@ -31,6 +33,14 @@ public class ServicoApplicationService implements ServicoService {
 		Servico servico = servicoRepository.findServicoById(idServico);
 		log.info("[finaliza]ServicoApplicationService - findServicoById");
 		return new ServicoResponse(servico);
+	}
+
+	@Override
+	public List<ServicoResponse> findAllServico() {
+		log.info("[inicia]ServicoApplicationService - findAllServico");
+		List<Servico> servicos = servicoRepository.findAllServico();
+		log.info("[finaliza]ServicoApplicationService - findAllServico");
+		return ServicoResponse.converte(servicos);
 	}
 
 }
