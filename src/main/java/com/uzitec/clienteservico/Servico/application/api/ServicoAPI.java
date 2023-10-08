@@ -15,7 +15,6 @@ import com.uzitec.clienteservico.Servico.application.api.request.ServicoRequest;
 import com.uzitec.clienteservico.Servico.application.api.response.ServicoResponse;
 
 import jakarta.validation.Valid;
-import lombok.Delegate;
 
 @RequestMapping("/v1/servico")
 public interface ServicoAPI {

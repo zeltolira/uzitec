@@ -9,4 +9,5 @@ public interface ServicoService {
 	ServicoResponse postServico(ServicoRequest servicoRequest);
 	ServicoResponse findServicoById(Long idServico);
 	List<ServicoResponse> findAllServico();
+	void deleteServico(Long idServico);
 }

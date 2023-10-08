@@ -42,4 +42,12 @@ public class ServicoRestController implements ServicoAPI {
 		return listServico;
 	}
 
+	@Override
+	public void deleteServico(Long idServico) {
+		log.info("[inicia] ServicoRestController - deleteServico");
+		servicoService.deleteServico(idServico);
+		log.info("[finlaiza] ServicoRestController - deleteServico");
+		
+	}
+
 }
