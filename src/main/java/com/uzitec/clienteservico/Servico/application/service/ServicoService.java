@@ -5,4 +5,5 @@ import com.uzitec.clienteservico.Servico.application.api.response.ServicoRespons
 
 public interface ServicoService {
 	ServicoResponse postServico(ServicoRequest servicoRequest);
+	ServicoResponse findServicoById(Long idServico);
 }
