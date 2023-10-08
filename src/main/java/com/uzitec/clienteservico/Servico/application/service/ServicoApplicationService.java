@@ -50,4 +50,13 @@ public class ServicoApplicationService implements ServicoService {
 		servicoRepository.deleteServico(servico.getIdServico());
 		log.info("[finaliza]ServicoApplicationService - deleteServico");
 	}
+
+	@Override
+	public void patchServico(Long idServico, ServicoRequest servicoRequest) {
+		log.info("[inicia]ServicoApplicationService - patchServico");
+		Servico servico = servicoRepository.findServicoById(idServico);
+		servico.patchServico(servico);
+		servicoRepository.saveServico(servico);
+		log.info("[finaliza]ServicoApplicationService - patchServico");
+	}
 }

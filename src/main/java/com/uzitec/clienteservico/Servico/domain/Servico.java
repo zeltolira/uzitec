@@ -49,5 +49,10 @@ public class Servico {
 		this.ValorServico = servicoRequest.getValorServico();
 	}
 
+	public void patchServico(Servico servicoRequest) {
+		this.servicoExecutado = servicoRequest.getServicoExecutado();
+		this.ValorServico = servicoRequest.getValorServico();
+	}
+
 
 }
