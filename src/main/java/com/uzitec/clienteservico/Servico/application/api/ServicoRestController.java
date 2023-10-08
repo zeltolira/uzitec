@@ -50,4 +50,12 @@ public class ServicoRestController implements ServicoAPI {
 		
 	}
 
+	@Override
+	public void patchServico(Long idServico, ServicoRequest servicoRequest) {
+		log.info("[inicia] ServicoRestController - patchServico");
+		servicoService.patchServico(idServico, servicoRequest);
+		log.info("[finaliza] ServicoRestController - patchServico");
+		
+	}
+
 }

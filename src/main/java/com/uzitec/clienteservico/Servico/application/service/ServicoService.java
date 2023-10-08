@@ -10,4 +10,5 @@ public interface ServicoService {
 	ServicoResponse findServicoById(Long idServico);
 	List<ServicoResponse> findAllServico();
 	void deleteServico(Long idServico);
+	void patchServico(Long idServico, ServicoRequest servicoRequest);
 }
