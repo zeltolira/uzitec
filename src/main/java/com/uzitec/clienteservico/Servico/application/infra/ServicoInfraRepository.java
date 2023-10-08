@@ -22,7 +22,7 @@ public class ServicoInfraRepository implements ServicoRepository {
 	private final  ServicoSpringDataJPARepository servicoSpringDataJPARepository;
 
 	@Override
-	public Servico postServico(Servico servico) {
+	public Servico saveServico(Servico servico) {
 		log.info("[inicia] ServicoInfraRepository - postServico");
 		try{
 			servicoSpringDataJPARepository.save(servico);

@@ -22,7 +22,7 @@ public class ServicoApplicationService implements ServicoService {
 	@Override
 	public ServicoResponse postServico(ServicoRequest servicoRequest) {
 		log.info("[inicia]ServicoApplicationService - postServico");
-		Servico servico = servicoRepository.postServico(new Servico(servicoRequest));
+		Servico servico = servicoRepository.saveServico(new Servico(servicoRequest));
 		log.info("[finaliza]ServicoApplicationService - postServico");
 		return new ServicoResponse(servico);
 	}
