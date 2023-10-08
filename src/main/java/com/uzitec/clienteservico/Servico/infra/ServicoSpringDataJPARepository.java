@@ -1,4 +1,4 @@
-package com.uzitec.clienteservico.Servico.application.infra;
+package com.uzitec.clienteservico.Servico.infra;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
