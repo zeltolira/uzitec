@@ -24,4 +24,12 @@ public class ServicoRestController implements ServicoAPI {
 		return servicoResponse;
 	}
 
+	@Override
+	public ServicoResponse findServicoById(Long idServico) {
+		log.info("[inicia] ServicoRestController - findServicoById");
+		ServicoResponse servicoResponse = servicoService.findServicoById(idServico);
+		log.info("[finaliza] ServicoRestController - findServicoById");
+		return servicoResponse;
+	}
+
 }

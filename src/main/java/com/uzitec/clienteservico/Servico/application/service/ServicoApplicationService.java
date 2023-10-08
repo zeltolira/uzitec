@@ -25,4 +25,12 @@ public class ServicoApplicationService implements ServicoService {
 		return new ServicoResponse(servico);
 	}
 
+	@Override
+	public ServicoResponse findServicoById(Long idServico) {
+		log.info("[inicia]ServicoApplicationService - findServicoById");
+		Servico servico = servicoRepository.findServicoById(idServico);
+		log.info("[finaliza]ServicoApplicationService - findServicoById");
+		return new ServicoResponse(servico);
+	}
+
 }
