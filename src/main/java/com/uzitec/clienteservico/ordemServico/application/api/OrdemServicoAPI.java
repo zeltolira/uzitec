@@ -36,7 +36,5 @@ public interface OrdemServicoAPI {
 	
 	@PatchMapping(value = "/{idOrdemServico}")
 	@ResponseStatus(value = HttpStatus.OK)
-	void patchOrdemServico (@PathVariable Long idOrdemServico, @Valid @RequestBody PatchOrdemServicoRequest patchOrdemServicoRequest);	
-	
-	
+	void patchOrdemServico (@PathVariable Long idOrdemServico, @Valid @RequestBody PatchOrdemServicoRequest patchOrdemServicoRequest);		
 }
