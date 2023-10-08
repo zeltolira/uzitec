@@ -3,6 +3,7 @@ package com.uzitec.clienteservico.Servico.application.api;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import com.uzitec.clienteservico.Servico.application.api.request.ServicoRequest;
 import com.uzitec.clienteservico.Servico.application.api.response.ServicoResponse;
 
 import jakarta.validation.Valid;
+import lombok.Delegate;
 
 @RequestMapping("/v1/servico")
 public interface ServicoAPI {
@@ -29,5 +31,9 @@ public interface ServicoAPI {
 	@GetMapping(value = "/allServicos")
 	@ResponseStatus(code = HttpStatus.OK)
 	List<ServicoResponse> findAllServico();
+
+	@DeleteMapping(value = "/{idServico}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void deleteServico(@PathVariable Long idServico);
 
 }
