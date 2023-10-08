@@ -9,10 +9,12 @@ import com.uzitec.clienteservico.funcionario.domain.Funcionario;
 import com.uzitec.clienteservico.orcamento.application.repository.OrcamentoRepository;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 import com.uzitec.clienteservico.ordemServico.application.api.request.OrdemServicoRequest;
+import com.uzitec.clienteservico.ordemServico.application.api.request.PatchOrdemServicoRequest;
 import com.uzitec.clienteservico.ordemServico.application.api.response.OrdemServicoResponse;
 import com.uzitec.clienteservico.ordemServico.application.repository.OrdemServicoRepository;
 import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -52,6 +54,15 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 		List<OrdemServico> ordemServicos = ordemServicoRepository.findAllOrdemServico();
 		log.info("[finaliza] OrdemServiceApplicationService - findAllOrdemServico");
 		return OrdemServicoResponse.converte(ordemServicos);
+	}
+
+	@Override
+	public void patchOrdemServico(Long idOrdemServico, @Valid PatchOrdemServicoRequest patchOrdemServicoRequest) {
+		log.info("[inicia] OrdemServiceApplicationService - patchOrdemServico");
+		OrdemServico ordemServico = ordemServicoRepository.findByOrdemServicoById(idOrdemServico);
+		ordemServico.patch(patchOrdemServicoRequest);
+		ordemServicoRepository.saveOrdemServico(ordemServico);
+		log.info("[finaliza] OrdemServiceApplicationService - patchOrdemServico");	
 	}
 
 	

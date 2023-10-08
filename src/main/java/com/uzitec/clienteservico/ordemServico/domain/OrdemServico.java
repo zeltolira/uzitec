@@ -8,6 +8,7 @@ import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
 import com.uzitec.clienteservico.ordemServico.application.api.request.OrdemServicoRequest;
+import com.uzitec.clienteservico.ordemServico.application.api.request.PatchOrdemServicoRequest;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,6 +20,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -58,6 +60,13 @@ public class OrdemServico {
 		this.servicoAExecutar = ordemServicoRequest.getServicoAExecutar();
 		this.observacao = ordemServicoRequest.getObservacao();
 //		this.funcionario = funcionario;
+	}
+
+	public void patch(@Valid PatchOrdemServicoRequest patchOrdemServicoRequest) {
+		this.tipoProduto = patchOrdemServicoRequest.getTipoProduto();
+		this.tipoMarca = patchOrdemServicoRequest.getTipoMarca();
+		this.servicoAExecutar = patchOrdemServicoRequest.getServicoAExecutar();
+		this.observacao = patchOrdemServicoRequest.getObservacao();
 	}
 
 }
