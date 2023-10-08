@@ -8,9 +8,14 @@ import com.uzitec.clienteservico.funcionario.domain.Funcionario;
 import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,10 +28,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "servico")
 public class Servico {
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long idServico;
+	@NotBlank
 	private ServicoAExecutar servicoExecutado;
+	@NotNull
 	private BigDecimal ValorServico;
+	@NotNull
 	private TipoPagamento tipoPagamento;
 
 	@ManyToOne
