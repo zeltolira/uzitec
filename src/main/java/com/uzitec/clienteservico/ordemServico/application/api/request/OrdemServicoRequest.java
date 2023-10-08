@@ -19,5 +19,6 @@ public class OrdemServicoRequest {
 	private LocalDate dataEntrega;
 	private UUID idFuncionario;
 	private Long idOrcamento;
+	private Long idServico;
 	
 }

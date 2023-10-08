@@ -5,14 +5,18 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.uzitec.clienteservico.Servico.domain.Servico;
 import com.uzitec.clienteservico.funcionario.application.api.request.AlteraFuncionarioRequest;
 import com.uzitec.clienteservico.funcionario.application.api.request.FuncionarioRequest;
 import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -44,9 +48,9 @@ public class Funcionario {
 	@Enumerated(EnumType.STRING)
 	private Cargo cargo;
 	
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "funcionario")
-//	@JsonIgnore
-//	private List<Servico> servicos;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "funcionario")
+	@JsonIgnore
+	private List<Servico> servicos;
 	
 	@OneToMany(mappedBy = "funcionario")
 	private List<OrdemServico> ordemServico;
