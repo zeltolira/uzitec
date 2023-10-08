@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.Servico.application.infra;
 
+import java.util.Optional;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
@@ -33,8 +35,10 @@ public class ServicoInfraRepository implements ServicoRepository {
 	@Override
 	public Servico findServicoById(Long idServico) {
 		log.info("[inicia] ServicoInfraRepository - findServicoById");
+		Optional<Servico> optionalServico = servicoSpringDataJPARepository.findById(idServico);
+		Servico servico = optionalServico.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Serviço não encontrado!" ));
 		log.info("[finaliza] ServicoInfraRepository - findServicoById");
-		return null;
+		return servico;
 	}
 
 }
