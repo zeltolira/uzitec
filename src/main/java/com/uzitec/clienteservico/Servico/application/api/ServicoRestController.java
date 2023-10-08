@@ -1,5 +1,7 @@
 package com.uzitec.clienteservico.Servico.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import com.uzitec.clienteservico.Servico.application.api.request.ServicoRequest;
@@ -30,6 +32,14 @@ public class ServicoRestController implements ServicoAPI {
 		ServicoResponse servicoResponse = servicoService.findServicoById(idServico);
 		log.info("[finaliza] ServicoRestController - findServicoById");
 		return servicoResponse;
+	}
+
+	@Override
+	public List<ServicoResponse> findAllServico() {
+		log.info("[inicia] ServicoRestController - findAllServico");
+		List<ServicoResponse> listServico = servicoService.findAllServico();
+		log.info("[finaliza] ServicoRestController - findAllServico");
+		return listServico;
 	}
 
 }
