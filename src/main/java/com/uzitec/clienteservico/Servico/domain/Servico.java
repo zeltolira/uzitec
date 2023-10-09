@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.Servico.application.api.request.ServicoRequest;
 import com.uzitec.clienteservico.funcionario.domain.Funcionario;
+import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
@@ -32,22 +34,26 @@ public class Servico {
 	@SequenceGenerator(name = "servico", sequenceName = "servico")
 	private Long idServico;
 	private ServicoAExecutar servicoExecutado;
-	private BigDecimal ValorServico;
+	private BigDecimal valorServico;
 	private TipoPagamento tipoPagamento;
 
 	@ManyToOne
 	@JoinColumn(name = "funcionario_id")
 	@JsonIgnore
 	private Funcionario funcionario;
+	
+	@OneToOne
+	@JoinColumn(name = "ordem_servico_id")
+	private OrdemServico ordemServico;
 
 	public Servico(ServicoRequest servicoRequest) {
 		this.servicoExecutado = servicoRequest.getServicoExecutado();
-		this.ValorServico = servicoRequest.getValorServico();
+		this.valorServico = servicoRequest.getValorServico();
 	}
 
 	public void patchServico(Servico servicoRequest) {
 		this.servicoExecutado = servicoRequest.getServicoExecutado();
-		this.ValorServico = servicoRequest.getValorServico();
+		this.valorServico = servicoRequest.getValorServico();
 	}
 
 

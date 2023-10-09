@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import com.uzitec.clienteservico.Servico.domain.Servico;
 import com.uzitec.clienteservico.Servico.domain.ServicoAExecutar;
+import com.uzitec.clienteservico.Servico.domain.TipoPagamento;
 
 import lombok.Value;
 
@@ -13,12 +14,14 @@ import lombok.Value;
 public class ServicoResponse {
 	private Long idServico;
 	private ServicoAExecutar servicoExecutado;
-	private BigDecimal ValorServico;
+	private BigDecimal valorServico;
+	private TipoPagamento tipoPagamento;
 
 	public ServicoResponse(Servico servico) {
 		this.idServico = servico.getIdServico();
 		this.servicoExecutado = servico.getServicoExecutado();
-		this.ValorServico = servico.getValorServico();
+		this.valorServico = servico.getValorServico();
+		this.tipoPagamento = servico.getTipoPagamento();
 	}
 
 	public static List<ServicoResponse> converte(List<Servico> servicos) {
