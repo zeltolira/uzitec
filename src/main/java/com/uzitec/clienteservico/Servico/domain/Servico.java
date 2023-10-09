@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.Servico.application.api.request.ServicoRequest;
 import com.uzitec.clienteservico.funcionario.domain.Funcionario;
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,8 +14,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,11 +31,8 @@ public class Servico {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "servico", sequenceName = "servico")
 	private Long idServico;
-	@NotBlank
 	private ServicoAExecutar servicoExecutado;
-	@NotNull
 	private BigDecimal ValorServico;
-	@NotNull
 	private TipoPagamento tipoPagamento;
 
 	@ManyToOne

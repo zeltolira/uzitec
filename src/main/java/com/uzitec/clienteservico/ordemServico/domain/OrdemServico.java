@@ -5,10 +5,7 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.Servico.domain.Servico;
 import com.uzitec.clienteservico.funcionario.domain.Funcionario;
-import com.uzitec.clienteservico.orcamento.domain.Marca;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
-import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
 import com.uzitec.clienteservico.ordemServico.application.api.request.OrdemServicoRequest;
 import com.uzitec.clienteservico.ordemServico.application.api.request.PatchOrdemServicoRequest;
 
@@ -56,13 +53,12 @@ public class OrdemServico {
 	@JsonIgnore
 	private Servico servico;
 
-	public OrdemServico(Funcionario funcionario, Servico servico, Orcamento orcamento,  OrdemServicoRequest ordemServicoRequest) {
+	public OrdemServico(Funcionario funcionario, Orcamento orcamento,  OrdemServicoRequest ordemServicoRequest) {
 		this.tipoProduto = ordemServicoRequest.getTipoProduto();
 		this.tipoMarca = ordemServicoRequest.getTipoMarca();
 		this.servicoAExecutar = ordemServicoRequest.getServicoAExecutar();
 		this.observacao = ordemServicoRequest.getObservacao();
 		this.funcionario = funcionario;
-		this.servico = servico;
 	}
 
 	public void patch(@Valid PatchOrdemServicoRequest patchOrdemServicoRequest) {

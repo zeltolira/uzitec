@@ -1,8 +1,9 @@
 package com.uzitec.clienteservico.ordemServico.application.api.request;
 
-import com.uzitec.clienteservico.orcamento.domain.Marca;
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
-import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
+
+import com.uzitec.clienteservico.ordemServico.domain.Marca;
+import com.uzitec.clienteservico.ordemServico.domain.ServicoAExecutar;
+import com.uzitec.clienteservico.ordemServico.domain.TipoProduto;
 
 import lombok.Value;
 

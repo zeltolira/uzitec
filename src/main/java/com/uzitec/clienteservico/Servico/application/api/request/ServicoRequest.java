@@ -2,7 +2,7 @@ package com.uzitec.clienteservico.Servico.application.api.request;
 
 import java.math.BigDecimal;
 
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
+import com.uzitec.clienteservico.Servico.domain.ServicoAExecutar;
 
 import lombok.Value;
 

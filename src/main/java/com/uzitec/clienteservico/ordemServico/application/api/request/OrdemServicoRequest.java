@@ -3,9 +3,9 @@ package com.uzitec.clienteservico.ordemServico.application.api.request;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import com.uzitec.clienteservico.orcamento.domain.Marca;
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
-import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
+import com.uzitec.clienteservico.ordemServico.domain.Marca;
+import com.uzitec.clienteservico.ordemServico.domain.ServicoAExecutar;
+import com.uzitec.clienteservico.ordemServico.domain.TipoProduto;
 
 import lombok.Value;
 
@@ -19,6 +19,5 @@ public class OrdemServicoRequest {
 	private LocalDate dataEntrega;
 	private UUID idFuncionario;
 	private Long idOrcamento;
-	private Long idServico;
-	
+		
 }

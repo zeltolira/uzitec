@@ -3,10 +3,10 @@ package com.uzitec.clienteservico.ordemServico.application.api.response;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.uzitec.clienteservico.orcamento.domain.Marca;
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
-import com.uzitec.clienteservico.orcamento.domain.TipoProduto;
+import com.uzitec.clienteservico.ordemServico.domain.Marca;
 import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
+import com.uzitec.clienteservico.ordemServico.domain.ServicoAExecutar;
+import com.uzitec.clienteservico.ordemServico.domain.TipoProduto;
 
 import lombok.Value;
 

@@ -11,6 +11,8 @@ import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatc
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,10 +27,12 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
+@Setter
 @Entity
 @Table(name = "orcamento")
 public class Orcamento {
@@ -41,7 +45,7 @@ public class Orcamento {
 	private TipoProduto tipoProduto;
 	@NotNull
 	private Marca marca;
-	@NotNull
+	@Enumerated(EnumType.STRING)
 	private ServicoAExecutar ServicoAExecultar;
 	@NotNull
 	@DecimalMin(value = "0.0", inclusive = false)

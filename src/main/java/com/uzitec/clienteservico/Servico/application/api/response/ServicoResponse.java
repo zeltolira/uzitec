@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.uzitec.clienteservico.Servico.domain.Servico;
-import com.uzitec.clienteservico.orcamento.domain.ServicoAExecutar;
+import com.uzitec.clienteservico.Servico.domain.ServicoAExecutar;
 
 import lombok.Value;
 
