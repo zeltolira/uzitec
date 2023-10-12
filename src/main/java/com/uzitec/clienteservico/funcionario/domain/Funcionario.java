@@ -52,7 +52,8 @@ public class Funcionario {
 	@JsonIgnore
 	private List<Servico> servicos;
 	
-	@OneToMany(mappedBy = "funcionario")
+
+	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.REMOVE)
 	private List<OrdemServico> ordemServico;
 	
 	public Funcionario(FuncionarioRequest funcionarioRequest) {

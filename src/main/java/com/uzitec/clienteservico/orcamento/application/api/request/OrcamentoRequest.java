@@ -15,7 +15,7 @@ public class OrcamentoRequest {
 	private TipoProduto tipoProduto;
 	@NotNull
 	private Marca marca;
-	private ServicoAExecutar ServicoAExecultar;
+	private ServicoAExecutar servicoAExecultar;
 	@NotNull
 	private BigDecimal valorOrcamento;
 	private String observacao;

@@ -8,6 +8,8 @@ import com.uzitec.clienteservico.funcionario.domain.Funcionario;
 import com.uzitec.clienteservico.ordemServico.domain.OrdemServico;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,8 +35,10 @@ public class Servico {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "servico", sequenceName = "servico")
 	private Long idServico;
+	@Enumerated(EnumType.STRING)
 	private ServicoAExecutar servicoExecutado;
 	private BigDecimal valorServico;
+	@Enumerated(EnumType.STRING)
 	private TipoPagamento tipoPagamento;
 
 	@ManyToOne
@@ -48,12 +52,15 @@ public class Servico {
 
 	public Servico(ServicoRequest servicoRequest) {
 		this.servicoExecutado = servicoRequest.getServicoExecutado();
+		this.tipoPagamento = servicoRequest.getTipoPagamento();
 		this.valorServico = servicoRequest.getValorServico();
 	}
 
 	public void patchServico(Servico servicoRequest) {
 		this.servicoExecutado = servicoRequest.getServicoExecutado();
 		this.valorServico = servicoRequest.getValorServico();
+		this.tipoPagamento = servicoRequest.getTipoPagamento();
+
 	}
 
 

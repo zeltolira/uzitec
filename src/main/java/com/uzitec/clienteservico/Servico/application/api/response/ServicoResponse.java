@@ -8,9 +8,14 @@ import com.uzitec.clienteservico.Servico.domain.Servico;
 import com.uzitec.clienteservico.Servico.domain.ServicoAExecutar;
 import com.uzitec.clienteservico.Servico.domain.TipoPagamento;
 
-import lombok.Value;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@Value
+@Getter
+@ToString
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ServicoResponse {
 	private Long idServico;
 	private ServicoAExecutar servicoExecutado;

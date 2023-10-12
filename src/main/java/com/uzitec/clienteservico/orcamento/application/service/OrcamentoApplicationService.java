@@ -34,6 +34,7 @@ public class OrcamentoApplicationService implements OrcamentoService {
 		log.info("[finaliza] OrcamentoApplicationService - criaOrcamento");
 		return OrcamentoResponse.builder()
 				.idOrcamento(orcamento.getIdOrcamento())
+				.idCliente(cliente.getIdCliente())
 				.build();
 	}
 	@Override

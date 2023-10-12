@@ -13,7 +13,7 @@ import lombok.Value;
 public class OrcamentoPatchRequest {
 	private TipoProduto tipoProduto;
 	private Marca marca;
-	private ServicoAExecutar ServicoAExecultar;
+	private ServicoAExecutar servicoAExecultar;
 	private BigDecimal valorOrcamento;
 	private String observacao;
 	private LocalDate dataOrcamento;

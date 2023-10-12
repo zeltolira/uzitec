@@ -4,12 +4,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.uzitec.clienteservico.Servico.domain.Servico;
 import com.uzitec.clienteservico.cliente.domain.Cliente;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoPatchRequest;
 import com.uzitec.clienteservico.orcamento.application.api.request.OrcamentoRequest;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,12 +26,10 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Setter
 @Entity
 @Table(name = "orcamento")
 public class Orcamento {
@@ -44,9 +41,11 @@ public class Orcamento {
 	@NotNull
 	private TipoProduto tipoProduto;
 	@NotNull
-	private Marca marca;
 	@Enumerated(EnumType.STRING)
-	private ServicoAExecutar ServicoAExecultar;
+	private Marca marca;
+	@Column (name = "servicoAExecultar")
+	@Enumerated(EnumType.STRING)
+	private ServicoAExecutar servicoAExecultar;
 	@NotNull
 	@DecimalMin(value = "0.0", inclusive = false)
 	private BigDecimal valorOrcamento;
@@ -57,36 +56,34 @@ public class Orcamento {
     @Min(0)
 	private Integer garantia; // TODO: Implementar a lógica de validação aqui (valido por 10 dias corridos)
 	
-	private LocalDateTime dataAlteracaoOrcamento;
+	private LocalDateTime dataHoraCadastroOrcamento;
 	
 	@ManyToOne
-	@JoinColumn(name = "cliente_id")
+	@JoinColumn(name = "cliente_id", referencedColumnName = "id")
 	private Cliente cliente;
 	
-	@ManyToOne
-	@JsonIgnore
-	private Servico servico;
-	
+
 	public Orcamento(Cliente cliente, OrcamentoRequest orcamentoRequest) {
 		this.tipoProduto = orcamentoRequest.getTipoProduto();
 		this.marca = orcamentoRequest.getMarca();
-		this.ServicoAExecultar = orcamentoRequest.getServicoAExecultar();
+		this.servicoAExecultar = orcamentoRequest.getServicoAExecultar();
 		this.valorOrcamento = orcamentoRequest.getValorOrcamento();
 		this.observacao = orcamentoRequest.getObservacao();
 		this.dataOrcamento = orcamentoRequest.getDataOrcamento();
 		this.garantia = orcamentoRequest.getGarantia();
-		this.dataAlteracaoOrcamento = LocalDateTime.now();
+		this.dataHoraCadastroOrcamento = LocalDateTime.now();
+		this.cliente = cliente;
 	}
 
 	public void patch(OrcamentoPatchRequest orcamentoRequest) {
 		this.tipoProduto = orcamentoRequest.getTipoProduto();
 		this.marca = orcamentoRequest.getMarca();
-		this.ServicoAExecultar = orcamentoRequest.getServicoAExecultar();
+		this.servicoAExecultar = orcamentoRequest.getServicoAExecultar();
 		this.valorOrcamento = orcamentoRequest.getValorOrcamento();
 		this.observacao = orcamentoRequest.getObservacao();
 		this.dataOrcamento = orcamentoRequest.getDataOrcamento();
 		this.garantia = orcamentoRequest.getGarantia();
-		this.dataAlteracaoOrcamento = LocalDateTime.now();
+		this.dataHoraCadastroOrcamento = LocalDateTime.now();
 		
 	}
 }

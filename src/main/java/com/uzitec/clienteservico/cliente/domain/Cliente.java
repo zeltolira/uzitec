@@ -10,6 +10,7 @@ import com.uzitec.clienteservico.cliente.application.api.request.ClienteAlteraca
 import com.uzitec.clienteservico.cliente.application.api.request.ClienteRequest;
 import com.uzitec.clienteservico.orcamento.domain.Orcamento;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -34,6 +35,7 @@ import lombok.NoArgsConstructor;
 public class Cliente {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID idCliente;
 	@NotBlank(message = "Campo obrigatório!")
@@ -63,7 +65,7 @@ public class Cliente {
 	private LocalDateTime dataHoraultimaAlteracao;
 	
 	
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.REMOVE)
 	private List<Orcamento> orcamentos;
 
 
