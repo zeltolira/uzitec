@@ -26,12 +26,14 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 	private final OrdemServicoRepository ordemServicoRepository;
 	private final FuncionarioRepository funcionarioRepository;
 	private final OrcamentoRepository orcamentoRepository;
+//	private final ServicoRepository servicoRepository;
 
 	@Override
 	public OrdemServicoResponse saveOrdemServico(OrdemServicoRequest ordemServicoRequest) {
 		log.info("[inicia] OrdemServiceApplicationService - postOrdemServico");
 		Funcionario funcionario = funcionarioRepository.buscaFuncionarioPorId(ordemServicoRequest.getIdFuncionario());
 		Orcamento orcamento = orcamentoRepository.getOrcamentoPorId(ordemServicoRequest.getIdOrcamento());
+//		Servico servico = servicoRepository.findServicoById(ordemServicoRequest.getIdServico());
 		OrdemServico ordemServico = ordemServicoRepository.saveOrdemServico(new OrdemServico(funcionario, orcamento, ordemServicoRequest));
 		orcamentoRepository.deleteOrcamento(ordemServicoRequest.getIdOrcamento());
 		log.info("[finaliza] OrdemServiceApplicationService - postOrdemServico");

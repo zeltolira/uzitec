@@ -1,6 +1,6 @@
 package com.uzitec.clienteservico.ordemServico.domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uzitec.clienteservico.Servico.domain.Servico;
@@ -44,7 +44,8 @@ public class OrdemServico {
 	@Enumerated(EnumType.STRING)
 	private ServicoAExecutar servicoAExecutar;
 	private String observacao;
-	private LocalDate dataEntrega;
+	private LocalDateTime dataHoraCadastro;
+	private LocalDateTime dataHoraAlteracao;
 
 	@ManyToOne
     @JoinColumn(name = "funcionario_id")
@@ -60,6 +61,8 @@ public class OrdemServico {
 		this.servicoAExecutar = ordemServicoRequest.getServicoAExecutar();
 		this.observacao = ordemServicoRequest.getObservacao();
 		this.funcionario = funcionario;
+		this.dataHoraCadastro = LocalDateTime.now();
+//		this.servico = servico;
 	}
 
 	public void patch(@Valid PatchOrdemServicoRequest patchOrdemServicoRequest) {
@@ -67,6 +70,7 @@ public class OrdemServico {
 		this.tipoMarca = patchOrdemServicoRequest.getTipoMarca();
 		this.servicoAExecutar = patchOrdemServicoRequest.getServicoAExecutar();
 		this.observacao = patchOrdemServicoRequest.getObservacao();
+		this.dataHoraAlteracao = LocalDateTime.now();
 	}
 
 }
